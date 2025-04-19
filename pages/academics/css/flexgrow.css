@@ -1,0 +1,270 @@
+
+
+.flexgrow-section {
+   padding: 10px 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: "Inter";
+   gap: 20px;
+}
+
+.flexgrow-info{
+   max-width: 85%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* border: 1px solid black;    */
+   padding: 1rem;
+   gap: 3rem;
+}
+
+.flexgrow-info .info{
+   display: flex;
+   align-items: flex-start;
+   flex-direction: column;
+   justify-content: center;  
+}
+
+.flexgrow-info .info p{
+   font-size: 17px;
+   font-weight: 500;  
+   font-style: italic;
+   color: var(--charcoal);
+}
+
+.flexgrow-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   padding: 0.5rem;
+   max-width: 1200px;
+   width: 100%;
+}
+
+.flexgrow-card {
+   background: var(--primaryblue);
+   opacity: 0.9;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex: 1;
+   min-width: 60px;
+   height: 450px;
+   border-radius: 7px;
+   cursor: pointer;
+   transition: 777ms cubic-bezier(0.05, 0.61, 0.41, 0.95);
+   overflow: hidden;
+}
+
+.flexgrow-card.active {
+   flex: 17;
+}
+
+.verticle-title {
+   text-transform: capitalize;
+   position: absolute;
+   margin: auto;
+   transform: rotate(270deg);
+   color: var(--thirdblue);
+   font-size: 1.1rem;
+   font-weight: 500;
+   white-space: nowrap;
+   transition: opacity 1s 1s;
+   opacity: 1;
+   pointer-events: none;
+}
+
+.flexgrow-card.active .verticle-title {
+   display: none;
+}
+
+.flexgrow-content {
+   /* border: 1px solid black; */
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: flex-start;
+   gap: 1.2rem;
+   height: 90%;
+   width: 92%;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.7s 0.7s;
+}
+
+.flexgrow-card.active .flexgrow-content {
+   opacity: 1;
+   visibility: visible;
+}
+
+.flexgrow-title {
+   text-transform: capitalize;
+   color: var(--thirdblue);
+   font-size: 35px;
+   font-weight: 500;
+
+}
+
+.flexgrow-content p {
+   color: rgba(255, 255, 255, 0.9);
+   line-height: 1.8;
+   font-size: 15px;
+   max-width: 95%;
+}
+
+.flexgrow-content button {
+   border: none;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   border-radius: 5px;
+   background: crimson;
+   color: var(--thirdblue);
+   font-size: 12px;
+   font-weight: 600;
+   padding: 0.2rem 0.4rem;
+   gap: 0.2rem;
+   cursor: pointer;
+   transition: 0.3s ease;
+   animation: glowing 2s ease-in-out infinite alternate;
+
+}
+
+.flexgrow-content button span {
+   color: var(--thirdblue);
+   font-size: 13px;
+   font-weight: 600;
+}
+
+.flexgrow-content button img {
+   height: 23px;
+   width: 23px;
+}
+
+.flexgrow-content button:hover {
+   transform: scale(1.02);
+}
+
+.flexgrow-container .grid{
+   width: 90%;
+   height: 200px;
+   background: url('https://images.shiksha.com/mediadata/images/1545634695phpjZ3M5c.png');
+}
+
+
+@keyframes glowing {
+   0% {
+      box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+   }
+
+   50% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+   }
+
+   100% {
+      box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+   }
+}
+
+@media (max-width: 969px) {
+   .flexgrow-section {
+     flex-direction: column;
+     padding: 20px 15px;
+     gap: 30px;
+   }
+ 
+   .flexgrow-container {
+     flex-direction: column;
+     width: 100%;
+     gap: 20px;
+   }
+ 
+   .flexgrow-card {
+     flex: 1 1 100% !important;
+     width: 100%;
+     height: auto;
+     min-height: auto;
+     padding: 25px;
+     align-items: flex-start;
+     transition: none;
+   }
+ 
+   .flexgrow-card.active {
+     flex: 1 1 100% !important;
+   }
+ 
+   .verticle-title {
+     display: none;
+   }
+ 
+   .flexgrow-content {
+     opacity: 1 !important;
+     visibility: visible !important;
+     gap: 15px;
+     height: auto;
+   }
+ 
+   .flexgrow-title {
+     font-size: 26px;
+     color: var(--thirdblue);
+   }
+ 
+   .flexgrow-content p {
+     font-size: 15px;
+     line-height: 1.6;
+     max-width: 100%;
+   }
+ 
+   .flexgrow-content .grid {
+     width: 100% !important;
+     max-width: 100%;
+     height: 180px !important;
+   }
+ 
+   .flexgrow-info {
+     max-width: 100%;
+     padding: 0;
+   }
+ 
+   .flexgrow-info .info p {
+     font-size: 16px;
+   }
+ 
+  
+   /* Button adjustments */
+   .flexgrow-content button {
+     padding: 10px 20px;
+     font-size: 14px;
+   }
+ 
+   .flexgrow-content button img {
+     height: 20px;
+     width: 20px;
+   }
+ }
+ 
+ @media (max-width: 480px) {
+   .flexgrow-card {
+     padding: 20px 15px;
+   }
+ 
+   .flexgrow-title {
+     font-size: 22px;
+   }
+ 
+   .flexgrow-content p {
+     font-size: 14px;
+   }
+ 
+   .flexgrow-content .grid {
+     height: 150px !important;
+   }
+ 
+   .flexgrow-content button {
+     padding: 8px 16px;
+     font-size: 13px;
+   }
+ }

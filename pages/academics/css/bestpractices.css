@@ -1,0 +1,137 @@
+.best-practices {
+    width: 90%;
+    margin: 0 auto;
+    font-family: 'inter', sans-serif;
+    padding: 2rem 1rem;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.best-practices * {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.bp-heading {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bp-subheading {
+    color: #34495e;
+    font-size: 1.8rem;
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid #3498db;
+    position: relative;
+}
+
+.bp-subheading::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #2ecc71;
+}
+
+.bp-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-bottom: 2.5rem;
+}
+
+.bp-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.bp-card:hover {
+    transform: translateY(-5px);
+}
+
+.bp-list {
+    list-style: none;
+    line-height: 1.7;
+}
+
+.bp-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+}
+
+.bp-list li:before {
+    content: '•';
+    color: #3498db;
+    margin-right: 1rem;
+    font-size: 1.5em;
+}
+
+.bp-list li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 992px) {
+    .bp-heading {
+        font-size: 2.2rem;
+    }
+
+    .bp-subheading {
+        font-size: 1.6rem;
+    }
+
+    .bp-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .best-practices {
+        padding: 1.5rem 0.5rem;
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .bp-heading {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .bp-subheading {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bp-grid {
+        gap: 1.5rem;
+    }
+
+    .bp-card {
+        margin-bottom: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .bp-list li {
+        padding: 0.75rem 0;
+        font-size: 0.95rem;
+    }
+    .best-practices {
+        width: 100%;
+        padding: 1rem;
+    }
+
+}

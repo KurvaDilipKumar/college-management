@@ -1,0 +1,250 @@
+
+
+.upcoming-events{
+    padding: 20px 20px;
+}
+
+.events-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1rem;
+}
+
+.card {
+    position: relative;
+    height: 250px;
+    width: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardcont {
+    height: 230px;
+    width: 300px;
+    border-radius: 15px;
+    border: 3px solid var(--secondaryblue);
+    background-color: var(--thirdblue);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-text {
+    position: absolute;
+    overflow: hidden;
+    line-height: 1.69;
+    height: 60%;
+    width: 96%;
+    padding: 5px 10px;
+    color: var(--primaryblue);
+    font-size: 15px;
+}
+
+.text-top {
+    position: absolute;
+    top: 5%;
+    right: 6%;
+    height: 10%;
+    width: 53%;
+    border: 2px solid var(--text-color);
+}
+
+.text-bottom {
+    position: absolute;
+    bottom: 5%;
+    left: 6%;
+    height: 10%;
+    width: 40%;
+    border: 2px solid var(--primaryblue );
+}
+
+.tag {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+
+.top-tag {
+    color: var(--primaryblue)  ;
+    /* color: #0b37a7; */
+    height: 50px;
+    width: 35%;
+    top: -3px;
+    left: -3px;
+    border-bottom: 3px solid var(--secondaryblue);
+    border-right: 3px solid var(--secondaryblue);
+    border-bottom-right-radius: 15px;
+    padding: 15px 12px;
+}
+
+
+.bottom-tag {
+    height: 50px;
+    width: 40%;
+    bottom: -3px;
+    right: -3px;
+    border-top: 3px solid var(--secondaryblue);
+    border-left: 3px solid var(--secondaryblue);
+    border-top-left-radius: 15px;
+    padding: 15px 5px;
+}
+
+.bottom-tag button {
+    height: 90%;
+    width: 96%;
+    padding: 14px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    transition: 0.4s ease;
+    background: none;
+    background: var(--primaryblue);
+}
+
+.bottom-tag button span {
+    font-weight: 500;
+    font-size: 12px;
+    color: white;
+    white-space: nowrap;
+}
+
+.bottom-tag button img {
+    height: 20px;
+    width: 20px;
+}
+
+.bottom-tag button:hover {
+    color: var(--secondaryblue);
+}
+
+
+.tag p {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    height: 80%;
+    width: 90%;
+    white-space: nowrap;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.top-tag::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: transparent;
+    box-shadow: -4px -4px white;
+    bottom: -25px;
+    left: 0px;
+    border-left: 3px solid var(--secondaryblue);
+    border-top: 3px solid var(--secondaryblue);
+    border-radius: 12px 0 0 0;
+}
+
+.top-tag::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: transparent;
+    box-shadow: -4px -4px white;
+    right: -25px;
+    top: 0px;
+    border-left: 3px solid var(--secondaryblue);
+    border-top: 3px solid var(--secondaryblue);
+    border-radius: 12px 0 0 0;
+}
+
+.bottom-tag::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: transparent;
+    box-shadow: 4px 4px white;
+    left: -25px;
+    bottom: 0px;
+    border-right: 3px solid var(--secondaryblue);
+    border-bottom: 3px solid var(--secondaryblue);
+    border-radius: 0 0 12px 0;
+}
+
+.bottom-tag::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-color: transparent;
+    box-shadow: 4px 4px white;
+    top: -25px;
+    right: 0px;
+    border-right: 3px solid var(--secondaryblue);
+    border-bottom: 3px solid var(--secondaryblue);
+    border-radius: 0 0 12px 0;
+}
+
+
+
+@media screen and (max-width: 1250px) {
+
+
+    .container {
+        gap: 1.5rem;
+    }
+
+    .card {
+        width: 300px;
+        height: 280px;
+    }
+
+    .cardcont {
+        height: 260px;
+        width: 280px;
+    }
+
+    .bottom-tag button {
+        padding: 15px 35px;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .top-tag p {
+        font-size: 13px;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+
+    .container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    h1 {
+        margin: 50px 20px;
+        text-align: center;
+    }
+
+    .main-text {
+        line-height: 18px;
+    }
+
+}
