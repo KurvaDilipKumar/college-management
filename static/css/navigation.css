@@ -1,0 +1,262 @@
+
+:root {
+    --primary-color: #073ca5;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    
+    --primaryblue: #00246B;
+    --secondaryblue: #8AB5F9;
+    --thirdblue: #C9DCFC;
+}
+
+
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+    font-family: "inter";
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--thirdblue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primaryblue);
+}
+
+
+
+
+
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: var(--thirdblue);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    background: var(--primary-color);
+    padding: 0.7rem 1rem;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-bar {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 33px;
+    letter-spacing: 5px;
+    font-weight: bolder;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 1rem;
+    max-width: 90%;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+
+
+.login-btn {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    margin-left: 1rem;
+    transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #c0392b;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 1111px) {
+
+    nav {
+        padding: 0.5rem 0.8rem;
+    }
+
+    .nav-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .top-bar {
+        display: flex;
+        width: 100%;
+    }
+
+    .desktop-logo {
+        display: none;
+    }
+
+    .logo {
+        letter-spacing: 2px;
+        margin-bottom: 0;
+        text-align: left;
+        flex: 1;
+        font-size: 1.3rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        background: var(--primary-color);
+        flex-direction: column;
+        width: 250px;
+        padding: 4rem 1.5rem 1.5rem;
+        gap: 1rem;
+        transition: right 0.9s ease;
+        z-index: 1000;
+        justify-content: flex-start;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 0.4rem;
+        text-align: left;
+    }
+
+    .close-btn {
+        display: block;
+    }
+
+    .login-btn {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 675px) {
+    nav {
+        padding: 0.3rem 0.8rem;
+    }
+
+    .logo {
+        letter-spacing: 1px;
+        font-size: 1rem;
+    }
+
+    .hamburger {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 485px) {
+    nav {
+        padding: 0.5rem 0.7rem;
+    }
+
+    .logo {
+        letter-spacing: 0px;
+        font-size: 0.7rem;
+    }
+
+    .hamburger {
+        font-size: 0.9rem;
+    }
+}
+
+
+.underline-animation {
+    position: relative;
+    width: max-content;
+}
+
+.underline-animation::before {
+    content: '';
+    background: #fff;
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.underline-animation:hover::before {
+    width: 100%;
+}

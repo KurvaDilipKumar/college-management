@@ -1,0 +1,158 @@
+{% extends "faculty/dashboard.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+{% block content %}
+<div class="container mt-4">
+    <div style="position: sticky; top: 0; background-color: white; z-index: 100; padding: 10px 0;">
+        <h2 class="text-center mb-4">Add / Manage Student Internships</h2>
+
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        <div class="mb-4">
+            <a href="{% url 'faculty:add_student_internship' %}" class="btn btn-success faculty-button">Add Internship</a>
+            <a href="{% url 'faculty:manage_student_internships' %}" class="btn btn-primary ms-3 faculty-button">Manage Internships</a>
+        </div>
+    </div>
+
+    {% if request.resolver_match.url_name == 'add_student_internship' %}
+        <h2 class="text-center mb-4">Add Student Internship Details</h2>
+        <div class="card p-4 shadow mt-4">
+            <h4 class="mb-3">Add Internship Details</h4>
+            <form method="POST" action="{% url 'faculty:add_student_internship' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="student_id" class="form-label">Student ID:</label>
+                    <input type="text" id="student_id" name="student_id" class="form-control faculty-input" required>
+                </div>
+                <div class="mb-3">
+                    <label for="company" class="form-label">Company:</label>
+                    <input type="text" id="company" name="company" class="form-control faculty-input" required>
+                </div>
+                <div class="mb-3">
+                    <label for="duration" class="form-label">Duration:</label>
+                    <input type="text" id="duration" name="duration" class="form-control faculty-input" required>
+                </div>
+                <div class="mb-3">
+                    <label for="start_date" class="form-label">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" class="form-control faculty-input">
+                </div>
+                <div class="mb-3">
+                    <label for="end_date" class="form-label">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" class="form-control faculty-input">
+                </div>
+                <button type="submit" class="btn btn-success faculty-button">Add Internship Details</button>
+            </form>
+        </div>
+    {% elif request.resolver_match.url_name == 'manage_student_internships' %}
+        <h2 class="text-center mb-4">Manage Student Internships</h2>
+        <div class="card p-4 shadow mt-4">
+            <h4 class="mb-3">Manage Internships</h4>
+
+            <form method="GET" class="row g-3" action="{% url 'faculty:manage_student_internships' %}">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="search" placeholder="Search by Student ID" class="form-control faculty-input" value="{{ request.GET.search }}">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary w-100 faculty-button">Filter</button>
+                    </div>
+                    <div class="col-md-2 d-flex">
+                        <a href="{% url 'faculty:manage_student_internships' %}" class="btn btn-secondary ms-2 faculty-button">Reset</a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Company</th>
+                            <th>Duration</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for internship in internships %}
+                        <tr>
+                            <td>{{ internship.student.student_id }}</td>
+                            <td>{{ internship.company }}</td>
+                            <td>{{ internship.duration }}</td>
+                            <td>{{ internship.start_date }}</td>
+                            <td>{{ internship.end_date }}</td>
+                            <td>
+                                <a href="{% url 'faculty:edit_student_internship' internship.id %}" class="btn btn-warning btn-sm faculty-button">Edit</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'faculty:delete_student_internship' internship.id %}" class="btn btn-danger btn-sm faculty-button">Delete</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center">No internships added yet.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% elif request.resolver_match.url_name == 'edit_student_internship' %}
+        <h2 class="text-center mb-4">Edit Internship</h2>
+        <div class="card p-4 shadow mt-4">
+            <h4 class="mb-3">Edit Internship Details</h4>
+            <form method="POST" action="{% url 'faculty:edit_student_internship' internship.id %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="student_id" class="form-label">Student ID:</label>
+                    <input type="text" id="student_id" name="student_id" class="form-control faculty-input" value="{{ internship.student.student_id }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="company" class="form-label">Company:</label>
+                    <input type="text" id="company" name="company" class="form-control faculty-input" value="{{ internship.company }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="duration" class="form-label">Duration:</label>
+                    <input type="text" id="duration" name="duration" class="form-control faculty-input" value="{{ internship.duration }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="start_date" class="form-label">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" class="form-control faculty-input" value="{{ internship.start_date|date:'Y-m-d' }}">
+                </div>
+                <div class="mb-3">
+                    <label for="end_date" class="form-label">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" class="form-control faculty-input" value="{{ internship.end_date|date:'Y-m-d' }}">
+                </div>
+                <button type="submit" class="btn btn-success faculty-button">Update Internship Details</button>
+                <a href="{% url 'faculty:manage_student_internships' %}" class="btn btn-secondary faculty-button">Cancel</a>
+            </form>
+        </div>
+    {% elif request.resolver_match.url_name == 'delete_student_internship' %}
+        <h2 class="text-center mb-4">Delete Internship</h2>
+        <div class="card p-4 shadow mt-4">
+            <h4 class="mb-3">Confirm Deletion</h4>
+            <p>Are you sure you want to delete the internship for student ID: {{ internship.student.student_id }} at {{ internship.company }}?</p>
+            <form method="POST" action="{% url 'faculty:delete_student_internship' internship.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger faculty-button">Confirm Delete</button>
+                <a href="{% url 'faculty:manage_student_internships' %}" class="btn btn-secondary faculty-button">Cancel</a>
+            </form>
+        </div>
+    {% else %}
+        <div class="mb-4">
+            <a href="{% url 'faculty:add_student_internship' %}" class="btn btn-success faculty-button">Add Internship</a>
+            <a href="{% url 'faculty:manage_student_internships' %}" class="btn btn-primary ms-3 faculty-button">Manage Internships</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

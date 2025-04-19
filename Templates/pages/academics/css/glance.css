@@ -1,0 +1,89 @@
+
+
+
+
+:root {
+    --blackShadowColor: rgba(0, 0, 0, 0.1018296843);
+    --blackShadowColorHower: rgba(0, 0, 0, 0.296925874);
+}
+
+.glance-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 30px;
+    row-gap: 20px;
+    column-gap: 20px;
+
+}
+
+.glance-card-item {
+    padding: 40px;
+    box-shadow: 0 0 24px var(--blackShadowColor);
+    border-radius: 28px;
+    transition: box-shadow 0.369s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.glance-card-item:hover {
+    box-shadow: 5px 5px 15px var(--blackShadowColorHower),
+                -5px -5px 15px var(--blackShadowColorHower);
+}
+
+.glance-card-item h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150px;
+}
+
+.glance-card-item h3 span {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.glance-card-item p {
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.red {
+    color: crimson;
+}
+
+.blue {
+    color: var(--primaryblue);
+}
+
+.green {
+    color: teal;
+}
+
+
+.count-up,
+.glance-data-extenstion {
+    font-size: 1.69rem;
+    font-weight: bold;
+    transition: all 0.5s ease-out;
+}
+
+@media (max-width: 1111px) {
+    .glance-card {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 899px) {
+    .glance-card {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 599px) {
+    .glance-card {
+        grid-template-columns: 1fr; 
+    }
+}

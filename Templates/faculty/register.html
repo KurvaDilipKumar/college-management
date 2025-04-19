@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Changed height to min-height */
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 20px; /* Added padding for smaller screens */
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .input-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap; /* Added flex-wrap */
+        }
+        .input-group {
+            width: 48%;
+            text-align: left;
+            margin-bottom: 10px; /* Added margin-bottom for smaller screens */
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #5b67ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #4a54e1;
+        }
+        .toggle-text {
+            margin-top: 10px;
+        }
+        .toggle-text a {
+            color: #5b67ff;
+            text-decoration: none;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .input-group {
+                width: 100%; /* Full width on smaller screens */
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+        .home-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #5b67ff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.home-button:hover {
+    background: #4a54e1;
+    transform: scale(1.05);
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Faculty Register</h2>
+        <form id="registrationForm" method="POST">
+            {% csrf_token %}
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="fullName">Full Name</label>
+                    <input name="fullname" type="text" id="fullName" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phonenum" placeholder="Phone Number" required maxlength="10">
+                    <span class="error" id="phoneError">10 digits required</span>
+                </div>
+                <div class="input-group">
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label  for="department">Department</label>
+                    <input name="department" type="text" id="department" placeholder="Department" required>
+                </div>
+                <div class="input-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+            </div>
+            <div class="input-row">
+            <div class="input-group">
+                    <label for="password">Password</label>
+                    <input name="password" type="password" id="password" placeholder="Password" required>
+                </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input name="confirm_password" type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <span class="error" id="passwordError">Passwords do not match</span>
+            </div>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <p class="toggle-text">Already have an account? <a href="{% url 'faculty_login' %}">Login</a></p>
+        </form>
+                <a href="{% url 'home' %}" class="home-button">Back to Home</a>
+
+    </div>
+
+<!--    <script>-->
+<!--        document.getElementById("registrationForm").addEventListener("submit", function(event) {-->
+<!--            event.preventDefault();-->
+
+<!--            var phone = document.getElementById("phone").value;-->
+<!--            var password = document.getElementById("password").value;-->
+<!--            var confirmPassword = document.getElementById("confirmPassword").value;-->
+
+<!--            var phoneError = document.getElementById("phoneError");-->
+<!--            var passwordError = document.getElementById("passwordError");-->
+
+<!--            phoneError.style.display = "none";-->
+<!--            passwordError.style.display = "none";-->
+
+<!--            var valid = true;-->
+
+<!--            if (phone.length !== 10) {-->
+<!--                phoneError.style.display = "block";-->
+<!--                valid = false;-->
+<!--            }-->
+
+<!--            if (password !== confirmPassword) {-->
+<!--                passwordError.style.display = "block";-->
+<!--                valid = false;-->
+<!--            }-->
+
+<!--            if (valid) {-->
+<!--                alert("Registration Successful!");-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+
+</body>
+</html>

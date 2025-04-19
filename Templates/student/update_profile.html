@@ -1,0 +1,107 @@
+{% extends "student/dashboard.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="card-title mb-3">Update Profile</h4>
+
+            {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+            <form method="POST" enctype="multipart/form-data" action="{% url 'student:update_profile' %}">
+                {% csrf_token %}
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="full_name" class="form-label">Full Name:</label>
+                        <input type="text" id="full_name" class="form-control student-input" value="{{ student.full_name }}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" class="form-control student-input" value="{{ student.email }}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Phone:</label>
+                        <input type="text" id="phone" name="phone" class="form-control student-input" value="{{ student.phone }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="department" class="form-label">Department:</label>
+                        <input type="text" id="department" class="form-control student-input" value="{{ student.get_department_display }}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="batch" class="form-label">Batch:</label>
+                        <input type="text" id="batch" class="form-control student-input" value="{{ student.get_batch_display }}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="student_id" class="form-label">Student ID:</label>
+                        <input type="text" id="student_id" class="form-control student-input" value="{{ student.student_id }}" readonly>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="tenth_marks" class="form-label">10th Marks:</label>
+                        <input type="text" id="tenth_marks" name="tenth_marks" class="form-control student-input" value="{{ student.tenth_marks|default_if_none:'' }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inter_diploma_marks" class="form-label">Inter/Diploma Marks:</label>
+                        <input type="text" id="inter_diploma_marks" name="inter_diploma_marks" class="form-control student-input" value="{{ student.inter_diploma_marks|default_if_none:'' }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="btech_marks" class="form-label">B.Tech Marks:</label>
+                        <input type="text" id="btech_marks" name="btech_marks" class="form-control student-input" value="{{ student.btech_marks|default_if_none:'' }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="native_address" class="form-label">Native Address:</label>
+                        <textarea id="native_address" name="native_address" class="form-control student-input">{{ student.native_address|default_if_none:'' }}</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="hostel_day_scholar" class="form-label">Hostel/Day Scholar:</label>
+                        <select id="hostel_day_scholar" name="hostel_day_scholar" class="form-select student-select">
+                            <option value="">Select</option>
+                            <option value="Hostel" {% if student.hostel_day_scholar == "Hostel" %}selected{% endif %}>Hostel</option>
+                            <option value="Day Scholar" {% if student.hostel_day_scholar == "Day Scholar" %}selected{% endif %}>Day Scholar</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="resume" class="form-label">Resume:</label>
+                        <input type="file" id="resume" name="resume" class="form-control student-input">
+                        {% if student.resume %}
+                            <a href="{% url 'student:serve_resume' student.id %}" target="_blank">View Resume</a>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inter_diploma_certificate" class="form-label">Inter/Diploma Certificate:</label>
+                        <input type="file" id="inter_diploma_certificate" name="inter_diploma_certificate" class="form-control student-input">
+                        {% if student.inter_diploma_certificate %}
+                            <a href="{% url 'student:serve_certificate' student.id %}" target="_blank">View Certificate</a>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label for="tenth_marks_photo" class="form-label">10th Marks Photo:</label>
+                        <input type="file" id="tenth_marks_photo" name="tenth_marks_photo" class="form-control student-input">
+
+                         {% if student.tenth_marks_photo %}
+                            <a href="{% url 'student:serve_tenth_marks_photo' student.id %}" target="_blank">View Mark List</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-success student-button">Update Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,241 @@
+{% extends "custom_admin/dashboard.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div style="position: sticky; top: 0; background-color: white; z-index: 100; padding: 10px 0;">
+        <h2 class="text-center mb-4">Add / Manage Faculties</h2>
+
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        <div class="mb-4">
+            <a href="?action=add" class="btn btn-success">Add Faculty</a>
+            <a href="?action=manage" class="btn btn-primary ms-3">Manage Faculties</a>
+        </div>
+    </div>
+
+    {% if request.GET.action == "add" or not request.GET.action and not faculty %}
+    <div class="card p-4 shadow mt-4">
+        <h4 class="mb-3">Add a Faculty</h4>
+        <form method="POST" action="{% url 'custom_admin:add_faculty' %}">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="full_name" class="form-label">Full Name:</label>
+                    <input type="text" id="full_name" name="full_name" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone:</label>
+                    <input type="text" id="phone" name="phone" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="department" class="form-label">Department:</label>
+                    <select id="department" name="department" class="form-select">
+                        <option value="">Select</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="AIML">AIML</option>
+                        <option value="AIDS">AIDS</option>
+                        <option value="CIVIL">CIVIL</option>
+                        <option value="MECH">MECH</option>
+                    </select>                    
+                </div>
+
+                <div class="col-md-6">
+                    <label for="subject" class="form-label">Subject:</label>
+                    <input type="text" id="subject" name="subject" class="form-control" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success mt-3">Add Faculty</button>
+        </form>
+    </div>
+    {% endif %}
+
+    {% if request.GET.action == "manage" %}
+    <div class="card p-4 shadow mt-4">
+        <h4 class="mb-3">Manage Faculties</h4>
+
+        <form method="GET" class="row g-3" action="{% url 'custom_admin:manage_faculty' %}">
+            <input type="hidden" name="action" value="manage">
+
+            <div class="col-sm-3 mb-1">
+                <input type="text" name="search" class="form-control form-control-sm" placeholder="Search" value="{{ request.GET.search }}">
+            </div>
+
+            <div class="col-sm-2 mb-1">
+                <select name="department" class="form-select form-select-sm">
+                    <option value="">Dept</option>
+                    <option value="CSE" {% if request.GET.department == "CSE" %}selected{% endif %}>CSE</option>
+                    <option value="ECE" {% if request.GET.department == "ECE" %}selected{% endif %}>ECE</option>
+                    <option value="EEE" {% if request.GET.department == "EEE" %}selected{% endif %}>EEE</option>
+                    <option value="AIML" {% if request.GET.department == "AIML" %}selected{% endif %}>AIML</option>
+                    <option value="AIDS" {% if request.GET.department == "AIDS" %}selected{% endif %}>AIDS</option>
+                    <option value="CIVIL" {% if request.GET.department == "CIVIL" %}selected{% endif %}>CIVIL</option>
+                    <option value="MECH" {% if request.GET.department == "MECH" %}selected{% endif %}>MECH</option>
+                </select>                
+            </div>
+
+            <div class="col-sm-2 mb-1">
+                <input type="text" name="subject" class="form-control form-control-sm" placeholder="Subject" value="{{ request.GET.subject }}">
+            </div>
+
+            <div class="col-sm-2 mb-1">
+                <select name="is_approved" class="form-select form-select-sm">
+                    <option value="">Status</option>
+                    <option value="True" {% if request.GET.is_approved == "True" %}selected{% endif %}>Approved</option>
+                    <option value="False" {% if request.GET.is_approved == "False" %}selected{% endif %}>Not Approved</option>
+                </select>
+            </div>
+
+            <div class="col-sm-2 d-flex mb-1">
+                <button type="submit" class="btn btn-primary btn-sm w-100">Filter</button>
+                <a href="?action=manage" class="btn btn-secondary btn-sm ms-2">Reset</a>
+            </div>
+        </form>
+
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Department</th>
+                        <th>Subject</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for faculty in faculty_list %}
+                    <tr>
+                        <td>{{ faculty.full_name }}</td>
+                        <td>{{ faculty.email }}</td>
+                        <td>{{ faculty.phone }}</td>
+                        <td>{{ faculty.department }}</td>
+                        <td>{{ faculty.subject }}</td>
+                        <td>
+                            <a href="{% url 'custom_admin:edit_faculty' faculty.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ faculty.id }}">Delete</button>
+                        </td>
+                    </tr>
+                    <div class="modal fade" id="deleteModal{{ faculty.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ faculty.id }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel{{ faculty.id }}">Confirm Deletion</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete <strong>{{ faculty.full_name }}</strong>?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger delete-confirm-btn" data-faculty-id="{{ faculty.id }}">Yes, Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center">No faculties found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if faculty %}
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Edit Faculty</h2>
+        <div class="card p-4 shadow">
+            <h4 class="mb-3">Update Faculty Details</h4>
+            <form method="POST" action="{% url 'custom_admin:edit_faculty' faculty.id %}">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="full_name" class="form-label">Full Name:</label>
+                        <input type="text" id="full_name" name="full_name" class="form-control" value="{{ faculty.full_name }}" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" value="{{ faculty.email }}" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Phone:</label>
+                        <input type="text" id="phone" name="phone" class="form-control" value="{{ faculty.phone }}" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="department" class="form-label">Department:</label>
+                        <select id="department" name="department" class="form-select">
+                            <option value="">Select</option>
+                            <option value="CSE" {% if faculty.department == "CSE" %}selected{% endif %}>CSE</option>
+                            <option value="ECE" {% if faculty.department == "ECE" %}selected{% endif %}>ECE</option>
+                            <option value="EEE" {% if faculty.department == "EEE" %}selected{% endif %}>EEE</option>
+                            <option value="AIML" {% if faculty.department == "AIML" %}selected{% endif %}>AIML</option>
+                            <option value="AIDS" {% if faculty.department == "AIDS" %}selected{% endif %}>AIDS</option>
+                            <option value="CIVIL" {% if faculty.department == "CIVIL" %}selected{% endif %}>CIVIL</option>
+                            <option value="MECH" {% if faculty.department == "MECH" %}selected{% endif %}>MECH</option>
+                        </select>                        
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="subject" class="form-label">Subject:</label>
+                        <input type="text" id="subject" name="subject" class="form-control" value="{{ faculty.subject }}" required>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="is_approved" name="is_approved" {% if faculty.is_approved %}checked{% endif %}>
+                    <label class="form-check-label" for="is_approved">Is Approved</label>
+                </div>
+
+                <button type="submit" class="btn btn-success mt-3">Update Faculty</button>
+                <a href="{% url 'custom_admin:manage_faculty' %}" class="btn btn-secondary mt-3">Cancel</a>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const deleteConfirmButtons = document.querySelectorAll('.delete-confirm-btn');
+        deleteConfirmButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const facultyId = this.getAttribute('data-faculty-id');
+                window.location.href = `/custom_admin/faculties/delete/${facultyId}/`;
+            });
+        });
+    });
+</script>
+
+{% endblock %}

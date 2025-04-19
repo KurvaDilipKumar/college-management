@@ -1,0 +1,62 @@
+{% extends "student/dashboard.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow rounded-lg">
+        <div class="card-body p-5">
+            <h2 class="text-center mb-4 text-primary">Student Profile</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Student ID:</strong>
+                        <span class="text-lg">{{ student.student_id }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Full Name:</strong>
+                        <span class="text-lg">{{ student.full_name }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Email:</strong>
+                        <span class="text-lg">{{ student.email }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Phone Number:</strong>
+                        <span class="text-lg">{{ student.phone }}</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Department:</strong>
+                        <span class="text-lg">{{ student.department }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Batch:</strong>
+                        <span class="text-lg">{{ student.batch }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Native Address:</strong>
+                        <span class="text-lg">{{ student.native_address }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .text-lg {
+        font-size: 1.1rem;
+    }
+    .card{
+        border: none;
+    }
+    .card:hover{
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        transition: box-shadow 0.3s ease;
+    }
+    .text-muted{
+        font-weight: 500;
+    }
+</style>
+{% endblock %}

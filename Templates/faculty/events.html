@@ -1,0 +1,164 @@
+{% extends "faculty/dashboard.html" %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+{% block content %}
+<div class="container mt-4">
+    <div style="position: sticky; top: 0; background-color: white; z-index: 100; padding: 10px 0;">
+        <h2 class="text-center mb-4">Add / Manage Events</h2>
+
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        <div class="mb-4">
+            <a href="{% url 'faculty:add_manage_events' %}?action=add" class="btn btn-success faculty-button">Add Event</a>
+            <a href="{% url 'faculty:add_manage_events' %}?action=manage" class="btn btn-primary ms-3 faculty-button">Manage Events</a>
+        </div>
+    </div>
+
+    {% if request.GET.action == "add" or not request.GET.action and not event %}
+    <div class="card p-4 shadow mt-4">
+        <h4 class="mb-3">Add an Event</h4>
+        <form method="POST" action="{% url 'faculty:add_manage_events' %}">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="title" class="form-label">Event Title:</label>
+                    <input type="text" id="title" name="title" class="form-control faculty-input" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="venue" class="form-label">Venue:</label>
+                    <input type="text" id="venue" name="venue" class="form-control faculty-input" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="start_date" class="form-label">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" class="form-control faculty-input" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="end_date" class="form-label">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" class="form-control faculty-input" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea id="description" name="description" class="form-control faculty-input" rows="3" required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success mt-3 faculty-button">Add Event</button>
+        </form>
+    </div>
+    {% endif %}
+
+    {% if request.GET.action == "manage" %}
+    <div class="card p-4 shadow mt-4">
+        <h4 class="mb-3">Manage Events</h4>
+        <form method="GET" class="row g-3" action="{% url 'faculty:add_manage_events' %}">
+            <input type="hidden" name="action" value="manage">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" name="search" placeholder="Search by Title" class="form-control faculty-input" value="{{ request.GET.search }}">
+                </div>
+                <div class="col-md-3">
+                    <input type="date" name="filter_date" class="form-control faculty-input" value="{{ request.GET.filter_date }}">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100 faculty-button">Filter</button>
+                </div>
+                <div class="col-md-2 d-flex">
+                    <a href="{% url 'faculty:add_manage_events' %}?action=manage" class="btn btn-secondary ms-2 faculty-button">Reset</a>
+                </div>
+            </div>
+        </form>
+
+        <div class="table-responsive mt-3">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Title</th>
+                        <th>Venue</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in event_list %}
+                    <tr>
+                        <td>{{ event.title }}</td>
+                        <td>{{ event.venue }}</td>
+                        <td>{{ event.start_date }}</td>
+                        <td>{{ event.end_date }}</td>
+                        <td>
+                            <form method="GET" action="{% url 'faculty:add_manage_events' %}">
+                                <input type="hidden" name="action" value="edit">
+                                <input type="hidden" name="event_id" value="{{ event.id }}">
+                                <button type="submit" class="btn btn-warning btn-sm faculty-button">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="POST" action="{% url 'faculty:add_manage_events' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="event_id" value="{{ event.id }}">
+                                <button type="submit" class="btn btn-danger btn-sm faculty-button" onclick="return confirm('Are you sure?');">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">No events added yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if event %}
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Edit Event</h2>
+        <div class="card p-4 shadow">
+            <h4 class="mb-3">Update Event Details</h4>
+            <form method="POST" action="{% url 'faculty:add_manage_events' %}">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="event_id" value="{{ event.id }}">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="title" class="form-label">Event Title:</label>
+                        <input type="text" id="title" name="title" class="form-control faculty-input" value="{{ event.title }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="venue" class="form-label">Venue:</label>
+                        <input type="text" id="venue" name="venue" class="form-control faculty-input" value="{{ event.venue }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="start_date" class="form-label">Start Date:</label>
+                        <input type="date" id="start_date" name="start_date" class="form-control faculty-input" value="{{ event.start_date }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="end_date" class="form-label">End Date:</label>
+                        <input type="date" id="end_date" name="end_date" class="form-control faculty-input" value="{{ event.end_date }}" required>
+                        </div>
+                    <div class="col-md-12">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea id="description" name="description" class="form-control faculty-input" rows="3" required>{{ event.description }}</textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success mt-3 faculty-button">Update Event</button>
+                <a href="{% url 'faculty:add_manage_events' %}?action=manage" class="btn btn-secondary mt-3 faculty-button">Cancel</a>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

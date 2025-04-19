@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ faculty.full_name }}, Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        .college-header {
+            background-color: #073CA5;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .college-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .college-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+            flex: 1;
+        }
+
+        /* Footer Styles */
+        .college-footer {
+            background-color: #073CA5;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Profile Section Styles */
+        .profile-header {
+            background: white;
+            border-radius: 15px;
+            min-width: 950px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            flex: 0 0 250px;
+            height: 300px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .name {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .detail-item i {
+            color: #3498db;
+            width: 25px;
+            text-align: center;
+        }
+
+        .detail-grid {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            /* display: grid; */
+            /* grid-template-columns: repeat(3, minmax(300px, 1fr)); */
+            /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+            gap: 2rem;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            /* border-bottom: 2px solid #3498db; */
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-title i {
+            font-size: 1.2rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            padding: 0.8rem;
+            background: #eff1f3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        /* li:hover {
+            transform: translateX(5px);
+        } */
+
+        .list-icon {
+            color: #3498db;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 250px;
+            }
+
+            .detail-item {
+                justify-content: center;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .college-name {
+                font-size: 1.5rem;
+            }
+
+            .college-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="college-header">
+        <div class="college-name">Nalla Malla Reddy Engineering College</div>
+        <!-- <div class="college-subtitle">Autonomous Institution</div> -->
+    </header>
+
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="{{ faculty.photo.url }}" alt="{{ faculty.full_name }}" class="profile-photo">
+            <div class="profile-info">
+                <h1 class="name">{{ faculty.full_name }}</h1>
+
+                <div class="detail-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>{{ faculty.professional_degree }}</span>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>{{ faculty.designation }}</span>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fas fa-university"></i>
+                    <span> Department of {{ faculty.department }}</span>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>{{ faculty.email }}</span>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fas fa-phone"></i>
+                    <span>{{ faculty.phone }}</span>
+                </div>                
+            </div>
+        </div>
+
+        <!-- Details Sections -->
+        <div class="detail-grid">
+
+            {% if faculty.subject_list %}
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-book-open"></i>Courses Handled</h2>
+                <ul>
+                    {% for subject in faculty.subject_list %}
+                    <li><i class="fas fa-book list-icon"></i>{{ subject }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if faculty.interest_list %}
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-lightbulb"></i>Areas of Interest</h2>
+                <ul>
+                    {% for interest in faculty.interest_list %}
+                    <li><i class="fas fa-search list-icon"></i>{{ interest }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if faculty.experience_list %}
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-chart-line"></i>Experience</h2>
+                <ul>
+                    {% for exp in faculty.experience_list %}
+                    <li><i class="fas fa-briefcase list-icon"></i>{{ exp }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if faculty.research_list %}
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-flask"></i>Research Activities</h2>
+                <ul>
+                    {% for activity in faculty.research_list %}
+                    <li><i class="fas fa-microscope list-icon"></i>{{ activity }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+
+
+            {% if faculty.awards_list %}
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-trophy"></i>Awards & Achievements</h2>
+                <ul>
+                    {% for award in faculty.awards_list %}
+                    <li><i class="fas fa-award list-icon"></i>{{ award }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            
+            {% if faculty.events_list %}
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-calendar-check"></i>Events Organized</h2>
+                <ul>
+                    {% for event in faculty.events_list %}
+                    <li><i class="fas fa-calendar-alt list-icon"></i>{{ event }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+
+            {% if faculty.positions_list %}
+            <div class="section-card">
+                <h2 class="section-title"><i class="fas fa-user-tie"></i>Administrative Positions</h2>
+                <ul>
+                    {% for position in faculty.positions_list %}
+                    <li><i class="fas fa-users-cog list-icon"></i>{{ position }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer class="college-footer">
+        <div class="footer-text">
+            © 2025 Nalla Malla Reddy Engineering College (Autonomous). All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

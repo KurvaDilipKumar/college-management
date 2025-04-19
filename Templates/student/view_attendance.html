@@ -1,0 +1,100 @@
+{% extends "student/dashboard.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="card-title mb-3">View Attendance</h4>
+
+            <form method="GET" class="mb-3">
+                <div class="row align-items-end">
+                    <div class="col-md-3 mb-2">
+                        <label for="event" class="form-label">Filter by Event Attendance:</label>
+                        <select name="event" id="event" class="form-select">
+                            <option value="">All</option>
+                            <option value="true">Attended</option>
+                            <option value="false">Not Attended</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="seminar" class="form-label">Filter by Seminar Attendance:</label>
+                        <select name="seminar" id="seminar" class="form-select">
+                            <option value="">All</option>
+                            <option value="true">Attended</option>
+                            <option value="false">Not Attended</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="date" class="form-label">Filter by Date:</label>
+                        <input type="date" name="date" id="date" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button type="submit" class="btn btn-primary w-100">Filter</button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{% url 'student:view_attendance' %}" class="btn btn-secondary w-100">Reset</a>
+                    </div>
+                </div>
+            </form>
+
+            {% if attendance %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Date</th>
+                                <th>Present</th>
+                                <th>Event Attended</th>
+                                <th>Seminar Attended</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in attendance %}
+                                <tr>
+                                    <td>{{ record.date }}</td>
+                                    <td>{% if record.is_present %}Yes{% else %}No{% endif %}</td>
+                                    <td>{% if record.event_attended %}Yes{% else %}No{% endif %}</td>
+                                    <td>{% if record.seminar_attended %}Yes{% else %}No{% endif %}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-center">No attendance details found.</p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+/* Improve table appearance */
+.table-responsive {
+    margin-top: 1rem;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+/* Improve form layout */
+.form-label {
+    font-weight: 500;
+}
+
+.form-select,
+.btn,
+.form-control {
+    height: 40px; /* Consistent button and select height */
+}
+
+/* Improve no data found message */
+.text-center {
+    font-style: italic;
+    color: #555;
+    margin-top: 20px;
+}
+</style>

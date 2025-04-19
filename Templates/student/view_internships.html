@@ -1,0 +1,90 @@
+{% extends "student/dashboard.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="card-title mb-3">View Internships</h4>
+
+            <form method="GET" class="mb-3">
+                <div class="row align-items-end">
+                    <div class="col-md-3 mb-2">
+                        <label for="start_date" class="form-label">Start Date:</label>
+                        <input type="date" name="start_date" id="start_date" class="form-control" value="{{ request.GET.start_date }}">
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <label for="end_date" class="form-label">End Date:</label>
+                        <input type="date" name="end_date" id="end_date" class="form-control" value="{{ request.GET.end_date }}">
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button type="submit" class="btn btn-primary w-100">Filter</button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{% url 'student:view_internships' %}" class="btn btn-secondary w-100">Reset</a>
+                    </div>
+                </div>
+            </form>
+
+            {% if internships %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Company</th>
+                                <th>Duration</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for internship in internships %}
+                                <tr>
+                                    <td>{{ internship.student.student_id }}</td>
+                                    <td>{{ internship.company }}</td>
+                                    <td>{{ internship.duration }}</td>
+                                    <td>{{ internship.start_date|date:"Y-m-d"|default:"-" }}</td>
+                                    <td>{{ internship.end_date|date:"Y-m-d"|default:"-" }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-center">No internships found.</p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+/* Improve table appearance */
+.table-responsive {
+    margin-top: 1rem;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+/* Improve form layout */
+.form-label {
+    font-weight: 500;
+}
+
+.form-select,
+.btn,
+.form-control {
+    height: 40px; /* Consistent button and select height */
+}
+
+/* Improve no data found message */
+.text-center {
+    font-style: italic;
+    color: #555;
+    margin-top: 20px;
+}
+</style>

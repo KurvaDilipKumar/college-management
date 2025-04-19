@@ -1,0 +1,80 @@
+{% extends "faculty/dashboard.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow rounded-lg">
+        <div class="card-body p-5">
+            <h2 class="text-center mb-4 text-primary">Faculty Profile</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Faculty ID:</strong>
+                        <span class="text-lg">{{ faculty.faculty_id }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Full Name:</strong>
+                        <span class="text-lg">{{ faculty.full_name }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Email:</strong>
+                        <span class="text-lg">{{ faculty.email }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Phone Number:</strong>
+                        <span class="text-lg">{{ faculty.phone }}</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Department:</strong>
+                        <span class="text-lg">{{ faculty.department }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Experience:</strong>
+                        <span class="text-lg">{{ faculty.experience }} years</span>
+                    </div>
+                    <div class="mb-4">
+                        <strong class="d-block mb-1 text-muted">Professional Degree:</strong>
+                        <span class="text-lg">{{ faculty.professional_degree }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Section: Courses Handled -->
+            {% if faculty.subject_list %}
+            <div class="mt-5">
+                <h3 class="text-primary mb-3"><i class="fas fa-book-open"></i> Courses Handled</h3>
+                <ul class="list-group">
+                    {% for subject in faculty.subject_list %}
+                    <li class="list-group-item"><i class="fas fa-book list-icon text-info me-2"></i>{{ subject }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .text-lg {
+        font-size: 1.1rem;
+    }
+
+    .card {
+        border: none;
+    }
+
+    .card:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .text-muted {
+        font-weight: 500;
+    }
+
+    .list-icon {
+        width: 20px;
+    }
+</style>
+{% endblock %}

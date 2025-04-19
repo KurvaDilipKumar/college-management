@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student {{ request.user.first_name }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #1e88e5, #42a5f5);
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow-y: auto; /* Enables scrolling */
+            scrollbar-width: thin; /* Firefox scrollbar */
+            scrollbar-color: white rgba(255, 255, 255, 0.3);
+        }
+        /* Webkit (Chrome, Safari, Edge) scrollbar styling */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .sidebar img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .sidebar ul li:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .content {
+            margin-left: 300px;
+            padding: 30px;
+            width: calc(100% - 300px);
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .section h2 {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="https://pbs.twimg.com/profile_images/1544005954580414469/VtRb_e4c_400x400.jpg" alt="University Logo">
+        <h2>{{ student.full_name }}</h2>
+        <ul>
+            <li><a href="{% url 'student:student_profile' %}">Profile</a></li>
+            <li><a href="{% url 'student:update_profile' %}">Update Profile</a></li>
+            <li><a href="{% url 'student:view_marks' %}">View Marks</a></li>
+            <li><a href="{% url 'student:view_attendance' %}">View Attendance</a></li>
+            <li><a href="{% url 'student:view_events' %}">View Events</a></li>
+            <!-- <li><a href="{% url 'student:view_placements' %}">Placement Companies</a></li> -->
+            <!-- <li><a href="{% url 'student:view_internships' %}">Internship Details</a></li> -->
+            <li><a href="{% url 'student:studentChatRoom' %}">Chat Room</a></li>
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        {% block content %}
+            <h2>Hi {{ request.user.first_name }}, Welcome to the Student Dashboard</h2>
+        {% endblock %}
+    </div>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="{% url 'student_logout' %}" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

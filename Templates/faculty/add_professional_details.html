@@ -1,0 +1,112 @@
+{% extends "faculty/dashboard.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+{% block content %}
+<div class="container mt-4">
+    <div class="sticky-top bg-white shadow-sm p-3 mb-4">
+        <h2 class="text-center mb-3">Faculty Professional Details</h2>
+
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if faculty %}
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="card-title mb-3">Edit Your Professional Details</h4>
+            <form method="POST" action="{% url 'faculty:add_professional_details' %}">
+                {% csrf_token %}
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="tenth_marks" class="form-label">10th Marks (%)</label>
+                        <input type="number" id="tenth_marks" name="tenth_marks" class="form-control faculty-input"
+                            value="{{ faculty.tenth_marks|default_if_none:'' }}" placeholder="Percentage">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inter_diploma_marks" class="form-label">Inter/Diploma Marks (%)</label>
+                        <input type="number" id="inter_diploma_marks" name="inter_diploma_marks" class="form-control faculty-input"
+                            value="{{ faculty.inter_diploma_marks|default_if_none:'' }}" placeholder="Percentage">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="degree_marks" class="form-label">Degree Marks (%)</label>
+                        <input type="number" id="degree_marks" name="degree_marks" class="form-control faculty-input"
+                            value="{{ faculty.degree_marks|default_if_none:'' }}" placeholder="Percentage">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="professional_degree" class="form-label">Professional Degree (BTech, MTech, PhD, etc.)</label>
+                        <input type="text" id="professional_degree" name="professional_degree" class="form-control faculty-input"
+                            value="{{ faculty.professional_degree|default_if_none:'' }}" placeholder="e.g., BTech, MTech, PhD">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="experience" class="form-label">Years of Experience</label>
+                        <input type="number" id="experience" name="experience" class="form-control faculty-input"
+                            value="{{ faculty.experience|default_if_none:'' }}" placeholder="Years">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Previous Institutions</label>
+                        <div id="previous-colleges-container">
+                            {% for college in previous_colleges_list %}
+                                <div class="d-flex mb-2">
+                                    <input type="text" name="previous_colleges_{{ forloop.counter0 }}" class="form-control faculty-input" value="{{ college }}">
+                                    <button type="button" class="btn btn-danger btn-sm remove-college-button ms-2 faculty-button">Remove</button>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <button type="button" id="add-college-button" class="btn btn-secondary btn-sm mt-2 faculty-button">Add College</button>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-success faculty-button">Update Details</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% else %}
+        <p>Faculty details not found.</p>
+    {% endif %}
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addButton = document.getElementById('add-college-button');
+        const container = document.getElementById('previous-colleges-container');
+        let collegeCount = {{ previous_colleges_list|length|default:0 }};
+
+        addButton.addEventListener('click', function() {
+            const collegeDiv = document.createElement('div');
+            collegeDiv.classList.add('d-flex', 'mb-2');
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = `previous_colleges_${collegeCount}`;
+            input.classList.add('form-control', 'faculty-input');
+
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'remove-college-button', 'ms-2', 'faculty-button');
+            removeButton.textContent = 'Remove';
+
+            collegeDiv.appendChild(input);
+            collegeDiv.appendChild(removeButton);
+            container.appendChild(collegeDiv);
+            collegeCount++;
+        });
+
+        container.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-college-button')) {
+                event.target.parentElement.remove();
+            }
+        });
+    });
+</script>
+{% endblock %}

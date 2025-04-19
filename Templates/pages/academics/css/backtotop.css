@@ -1,0 +1,34 @@
+#backtotopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 9;
+}
+
+.progress-circle {
+    border: 3px solid white;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    border-radius: 50%;
+    /* background: conic-gradient(var(--primaryblue) 0deg, var(--primaryblue) var(--progress, 0%), lightgray var(--progress, 0%), lightgray 100%); */
+
+    background: conic-gradient(var(--primaryblue) 0deg, var(--primaryblue) var(--progress, 0%), rgb(44, 185, 233) var(--progress, 0%), rgb(44, 185, 233) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+}

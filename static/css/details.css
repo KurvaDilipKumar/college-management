@@ -1,0 +1,31 @@
+.aboutNmrec {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    max-width: 90%;
+}
+
+.aboutNmrec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutNmrec p {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.5;
+}
+
+
+
+
+
+@media (max-width: 675px) {
+    
+    .aboutNmrec p{
+        font-size: 12px;
+    }
+}

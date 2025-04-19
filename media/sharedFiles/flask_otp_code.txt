@@ -1,0 +1,18 @@
+otp = str(random.randint(000000, 999999))
+        print(otp)
+        msg="your secret key is:"
+        mail_content = msg + ' ' + str(otp)
+        sender_address = 'cse.takeoff@gmail.com'
+        sender_pass = 'digkagfgyxcjltup'
+        receiver_address = email
+        message = MIMEMultipart()
+        message['From'] = sender_address
+        message['To'] = receiver_address
+        message['Subject'] = 'Enhanced AES Algorithm for Cloud Data Management with Dual Authentication'
+        message.attach(MIMEText(mail_content, 'plain'))
+        session = smtplib.SMTP('smtp.gmail.com', 587)
+        session.starttls()
+        session.login(sender_address, sender_pass)
+        text = message.as_string()
+        session.sendmail(sender_address, receiver_address, text)
+        session.quit()

@@ -1,0 +1,95 @@
+{% extends "student/dashboard.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="card-title mb-3">View Placements</h4>
+
+            <form method="GET" class="mb-3">
+                <div class="row align-items-end">
+                    <div class="col-md-3 mb-2">
+                        <label for="deadline" class="form-label">Filter by Deadline:</label>
+                        <input type="date" name="deadline" id="deadline" class="form-control" value="{{ request.GET.deadline }}">
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button type="submit" class="btn btn-primary w-100">Filter</button>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{% url 'student:view_placements' %}" class="btn btn-secondary w-100">Reset</a>
+                    </div>
+                </div>
+            </form>
+
+            {% if placements %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Company</th>
+                                <th>Job Title</th>
+                                <th>Package (LPA)</th>
+                                <th>Location</th>
+                                <th>Application Deadline</th>
+                                <th>Apply</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for placement in placements %}
+                                <tr>
+                                    <td>{{ placement.company }}</td>
+                                    <td>{{ placement.job_title }}</td>
+                                    <td>{{ placement.package }}</td>
+                                    <td>{{ placement.location }}</td>
+                                    <td>{{ placement.application_deadline|default:"-" }}</td>
+                                    <td>
+                                        {% if placement.id in applied_placements %}
+                                            <button class="btn btn-secondary btn-sm" disabled>Applied</button>
+                                        {% else %}
+                                            <a href="{% url 'student:apply_placement' placement.id %}" class="btn btn-success btn-sm apply-button" data-placement-id="{{ placement.id }}">Apply</a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-center">No placements found.</p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const applyButtons = document.querySelectorAll('.apply-button');
+
+        applyButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const placementId = this.dataset.placementId;
+                const url = `/student/apply_placement/${placementId}/`;
+
+                fetch(url)
+                    .then(response => {
+                        if (response.ok) {
+                            this.textContent = 'Applied';
+                            this.classList.remove('btn-success');
+                            this.classList.add('btn-secondary');
+                            this.disabled = true;
+                        } else {
+                            alert('An error occurred. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again.');
+                    });
+            });
+        });
+    });
+</script>
+
+{% endblock %}

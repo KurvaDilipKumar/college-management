@@ -1,0 +1,21 @@
+{% extends "student/dashboard.html" %}
+
+{% block content %}
+<div class="card-footer bg-light d-flex align-items-center">
+    <form action="{% url 'student:studentChatRoom' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row w-100">
+            <div class="col-md-6 mb-2">
+                <!-- Select option for message type or topic -->
+                <select name="message_type" class="form-select w-100" required>
+                    <option value="" disabled selected>Select Message Type</option>
+                    {% for i in facultyList %}
+                    <option value="{{i.faculty_id}}">{{i.subject}}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-primary mt-2">Chat</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

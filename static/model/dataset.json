@@ -1,0 +1,658 @@
+{
+    "admissions": [
+      {
+        "question": "What is the admission process for B.Tech at NMREC?",
+        "answer": "The admission process for B.Tech at NMREC is through the TS EAMCET (Telangana State Engineering, Agriculture, and Medical Common Entrance Test). The candidates need to register for the counseling process after qualifying the exam."
+      },
+      {
+        "question": "What are the eligibility criteria for M.Tech admissions?",
+        "answer": "To be eligible for M.Tech admissions, candidates must have a B.Tech/B.E. degree in a relevant discipline with a minimum required percentage as per the university guidelines. Additionally, GATE scores may be required for some specializations."
+      },
+      {
+        "question": "Does NMREC offer lateral entry admissions?",
+        "answer": "Yes, NMREC offers lateral entry admissions for the B.Tech program for students who have completed a diploma in the relevant field."
+      },
+      {
+        "question": "What is the fee structure for B.Tech at NMREC?",
+        "answer": "The fee structure for B.Tech courses is Rs. 95,000.00 per annum."
+      },
+      {
+        "question": "How can I apply for admission to NMREC?",
+        "answer": "You can apply for admission to NMREC through filling out the online application form after meeting the eligibility criteria."
+      },
+      {
+        "question": "What is the last date to apply for admissions?",
+        "answer": "The last date to apply for admissions typically depends on the entrance exam schedule. For specific dates, please check the official NMREC admissions page."
+      },
+      {
+        "question": "Is there an entrance exam for B.Tech admissions?",
+        "answer": "Yes, admissions for B.Tech are primarily through the TS EAMCET entrance exam. Alternatively, candidates with JEE Main scores may also be considered."
+      },
+      {
+        "question": "What is the cutoff rank for EAMCET at NMREC?",
+        "answer": "The cutoff rank for EAMCET varies each year depending on the number of applicants, seats, and category. The cutoff details can be found on the official website or in the admission brochure."
+      },
+      {
+        "question": "Can I apply for B.Tech without EAMCET?",
+        "answer": "In most cases, EAMCET is required for B.Tech admissions. However, candidates with JEE Main scores may be considered in some cases."
+      },
+      {
+        "question": "What documents are required for admission?",
+        "answer": "The required documents typically include TS EAMCET rank card, hall ticket, Aadhaar card, SSC/10th mark sheet, 6th to 12th study certificates, transfer certificate, intermediate mark sheet, income certificate (if applicable), caste certificate, residence certificate, and others as specified by the competent authority."
+      },
+      {
+        "question": "Is there a management quota for admissions?",
+        "answer": "Yes, NMREC offers management quota seats for B.Tech and other programs. The eligibility and fees for these seats are typically different from regular admissions."
+      },
+      {
+        "question": "What is the fee for management quota seats?",
+        "answer": "The fee for management quota seats is generally higher than for regular seats. For the exact fee structure, you can contact the NMREC admission office."
+      },
+      {
+        "question": "Does NMREC offer scholarships for students?",
+        "answer": "Yes, NMREC offers scholarships based on merit, sports, and other criteria. The college also supports government scholarships for eligible students."
+      },
+      {
+        "question": "How can I check my admission status?",
+        "answer": "You can check your admission status by visiting the NMREC admission portal and logging in with your application credentials."
+      },
+      {
+        "question": "Is there a hostel facility for first-year students?",
+        "answer": "Yes, NMREC provides hostel facilities for both male and female students, including first-year students, subject to availability."
+      },
+      {
+        "question": "What is the admission process for international students?",
+        "answer": "International students can apply through the Foreign National Quota. They need to submit their academic transcripts, English proficiency certificates, and passport details."
+      },
+      {
+        "question": "Does NMREC accept JEE Main scores for B.Tech?",
+        "answer": "Yes, NMREC accepts JEE Main scores for B.Tech admissions in addition to TS EAMCET scores."
+      },
+      {
+        "question": "Can I transfer to NMREC from another college?",
+        "answer": "Yes, students who wish to transfer to NMREC from another college must meet the eligibility criteria, and their credits may be evaluated for transfer."
+      },
+      {
+        "question": "What is the admission process for MBA at NMREC?",
+        "answer": "The admission process for MBA is typically through an entrance exam and counseling. Check the NMREC website for specific details on eligibility and the application process."
+      },
+      {
+        "question": "Is there an age limit for B.Tech admissions?",
+        "answer": "There is no specific age limit for B.Tech admissions at NMREC, but candidates must meet the age-related eligibility criteria as per the exam guidelines."
+      },
+      {
+        "question": "What is the fee structure for M.Tech at NMREC?",
+        "answer": "The fee structure for M.Tech courses is Rs. 80,000.00 per annum."
+      },
+      {
+        "question": "What is the fee structure for MBA at NMREC?",
+        "answer": "The fee structure for MBA courses is Rs. 70,000.00 per annum."
+      },
+      {
+        "question": "Does NMREC offer part-time courses?",
+        "answer": "Currently, NMREC primarily offers full-time courses."
+      },
+      {
+        "question": "Are there any reserved seats for SC/ST students?",
+        "answer": "Yes, NMREC follows government guidelines for reservation of seats for SC/ST and other backward categories."
+      },
+      {
+        "question": "What is the admission process for lateral entry to B.Tech?",
+        "answer": "The admission process for lateral entry to B.Tech involves direct entry to the second year for diploma holders in the relevant field. Admission is based on the eligibility and availability of seats."
+      },
+      {
+        "question": "Does NMREC offer distance education programs?",
+        "answer": "Currently, NMREC does not offer distance education programs. The college primarily offers on-campus courses."
+      },
+      {
+        "question": "Can I apply for multiple courses at NMREC?",
+        "answer": "Yes, you can apply for multiple courses, but you need to meet the eligibility criteria for each program. Ensure that you have the necessary qualifications and documentation."
+      },
+      {
+        "question": "What is the counseling process for admissions?",
+        "answer": "The counseling process involves verifying documents, seat allotment based on rank, and fee payment. Candidates must participate in the counseling as per the schedule."
+      }
+    ],
+    "academic_info": [
+      {
+        "question": "What are the branches offered in B.Tech at NMREC?",
+        "answer": "NMREC offers various branches for the B.Tech program, including Computer Science and Engineering, Electrical and Electronics Engineering, Mechanical Engineering, Civil Engineering, Electronics and Communication Engineering, Artificial Intellegence and Machine Learning , Artificial Intellegence and Data Science."
+      },
+      {
+        "question": "What are the branches offered in M.Tech at NMREC?",
+        "answer": "NMREC offers various branches for the B.Tech program, including VLSI&ES and CAD/CAM"
+      },
+      {
+        "question": "Does NMREC offer any postgraduate courses?",
+        "answer": "Yes, NMREC offers postgraduate courses including M.Tech in various specializations and an MBA program."
+      },
+      {
+        "question": "What is the duration of the B.Tech program?",
+        "answer": "The duration of the B.Tech program at NMREC is typically 4 years, divided into 8 semesters."
+      },
+      {
+        "question": "Are there any research opportunities at NMREC?",
+        "answer": "Yes, NMREC provides research opportunities in various fields of engineering and technology. The college encourages students and faculty to engage in research projects and innovation."
+      },
+      {
+        "question": "Does NMREC provide internship opportunities?",
+        "answer": "Yes, NMREC provides internship opportunities to students as part of their curriculum. The college has tie-ups with various industries for internships and projects."
+      },
+      {
+        "question": "What is the syllabus for B.Tech at NMREC?",
+        "answer": "The syllabus for B.Tech at NMREC follows the guidelines set by the affiliated university. It includes core subjects, electives, and hands-on lab sessions. Specific details can be found on the official NMREC website or through the academic department."
+      },
+      {
+        "question": "Are there any elective subjects in B.Tech?",
+        "answer": "Yes, NMREC offers elective subjects ( OPEN AND PROFESSIONAL ELECTIVES) in the later years of the B.Tech program, allowing students to specialize in areas of their interest."
+      },
+      {
+        "question": "What is the grading system at NMREC?",
+        "answer": "NMREC follows a Credit-based grading system, where students are graded on a scale of 10. The grading is based on academic performance in each course."
+      },
+      {
+        "question": "Does NMREC offer online courses?",
+        "answer": "Currently, NMREC primarily offers traditional on-campus courses. However, there may be online resources and lectures available for supplementary learning."
+      },
+      {
+        "question": "What is the attendance policy at NMREC?",
+        "answer": "NMREC requires a minimum of 75% attendance for students to be eligible to appear for exams. Students with lower attendance may be subject to disciplinary action."
+      },
+      {
+        "question": "Are there any industry collaborations for academics?",
+        "answer": "Yes, NMREC has industry collaborations for research, internships, and training programs. The college regularly partners with top industry players to provide practical exposure to students."
+      },
+      {
+        "question": "What is the faculty-to-student ratio at NMREC?",
+        "answer": "The faculty-to-student ratio at NMREC is approximately 1:20, ensuring personalized attention to students."
+      },
+      {
+        "question": "Does NMREC offer certification courses?",
+        "answer": "Yes, NMREC offers certification courses in various technical fields to enhance students' skills and employability."
+      },
+      {
+        "question": "Are there any workshops or seminars conducted?",
+        "answer": "Yes, NMREC organizes workshops, seminars, and guest lectures on various technical and non-technical topics throughout the academic year."
+      },
+      {
+        "question": "What is the process for applying for academic leave?",
+        "answer": "Students must submit an academic leave application to the concerned department, stating the reason and duration of the leave. Approval is granted based on academic performance and attendance."
+      },
+      {
+        "question": "Does NMREC offer dual degree programs?",
+        "answer": "Yes, NMREC offers dual degree programs, often integrating a B.Tech and M.Tech or other related degrees, allowing students to complete both in a shorter timeframe than pursuing them separately."
+      },
+      {
+        "question": "What are the lab facilities available at NMREC?",
+        "answer": "NMREC has well-equipped laboratories for all engineering disciplines, including computer labs, mechanical labs, electronics labs, civil engineering labs, digital library, English Language Communication Skills Lab, Engineering Workshop, IT Workshop, Drawing Halls, and have some department specific labs also."
+      },
+      {
+        "question": "Are there any language courses offered?",
+        "answer": "Yes, NMREC offers language courses like English Communication and Soft Skills Development as part of the curriculum to improve students' communication abilities."
+      },
+      {
+        "question": "What is the process for course registration?",
+        "answer": "Course registration is done online through the college's student portal. Students need to log in with their credentials and select the courses based on their semester and department."
+      },
+      {
+        "question": "Does NMREC provide study materials online?",
+        "answer": "Yes, NMREC provides study materials, lecture notes, and resources through the college's online portal for students to access."
+      },
+      {
+        "question": "What is the process for changing branches?",
+        "answer": "Branch change at NMREC is subject to availability of seats and is typically done after the first year. Students must meet the required academic performance criteria for eligibility."
+      },
+      {
+        "question": "Are there any guest lectures by industry experts?",
+        "answer": "Yes, NMREC regularly organizes guest lectures and talks by industry experts to provide students with real-world insights and knowledge."
+      },
+      {
+        "question": "What is the process for applying for revaluation?",
+        "answer": "Students can apply for revaluation by filling out the revaluation form and submitting it along with the required fee to the examination office within the prescribed time frame."
+      },
+      {
+        "question": "Does NMREC offer any exchange programs?",
+        "answer": "Currently, NMREC does not offer formal student exchange programs. However, students can participate in internships and training programs in collaboration with various universities and industries."
+      },
+      {
+        "question": "What are the library timings at NMREC?",
+        "answer": "The library at NMREC is open from 10:00 AM to 5:00 PM on weekdays. The timings may vary during holidays or exam periods."
+      },
+      {
+        "question": "Are there any online learning platforms used?",
+        "answer": "Yes, NMREC utilizes online learning platforms such as Moodle and other e-learning tools to facilitate virtual learning and enhance student engagement."
+      },
+      {
+        "question": "What is the process for applying for scholarships?",
+        "answer": "Students can apply for scholarships through the official NMREC website or by contacting the scholarship office. The application process typically requires submission of relevant academic and financial documents."
+      },
+      {
+        "question": "Does NMREC offer any bridge courses?",
+        "answer": "Yes, NMREC offers bridge courses to help students strengthen their foundational knowledge in subjects like mathematics and programming before the start of their degree program."
+      },
+      {
+        "question": "What is the process for applying for academic projects?",
+        "answer": "Students can apply for academic projects through the respective department by submitting a proposal outlining their project idea. Approval is subject to faculty review and availability of resources."
+      }
+    ],
+    "placement_info": [
+      {
+        "question": "What is the placement record of NMREC?",
+        "answer": "NMREC has a strong placement record, with many students securing jobs in top companies across various industries. The placement cell works actively to ensure a high placement rate."
+      },
+      {
+        "question": "Does NMREC provide placement training?",
+        "answer": "Yes, NMREC provides placement training, which includes workshops on resume building, interview preparation, communication skills, and technical training."
+      },
+      {
+        "question": "Which companies visit NMREC for placements?",
+        "answer": "Several top companies visit NMREC for campus placements, including tech giants like Microsoft, TCS, Infosys, Wipro, Cognizant, Accenture, and many more."
+      },
+      {
+        "question": "What is the average salary package offered at NMREC?",
+        "answer": "The average salary package offered at NMREC varies by branch, but it generally ranges from Rs. 3-6 lakhs per annum."
+      },
+      {
+        "question": "Does NMREC offer international placement opportunities?",
+        "answer": "Yes, NMREC has placement tie-ups with international companies, and some students have secured placements in global firms."
+      },
+      {
+        "question": "What is the highest salary package offered at NMREC?",
+        "answer": "The highest salary package offered at NMREC varies each year but can go up to Rs. 10-15 lakhs per annum for select roles."
+      },
+      {
+        "question": "Are there any internships offered through the placement cell?",
+        "answer": "Yes, the placement cell at NMREC facilitates internship opportunities with various companies, helping students gain industry experience."
+      },
+      {
+        "question": "What is the process for registering for placements?",
+        "answer": "Students must register for placements through the college's online placement portal. They need to submit their updated resumes and meet the eligibility criteria set by the placement cell."
+      },
+      {
+        "question": "Does NMREC provide resume-building workshops?",
+        "answer": "Yes, NMREC organizes resume-building workshops to help students create professional resumes that stand out to recruiters."
+      },
+      {
+        "question": "Are there any mock interviews conducted?",
+        "answer": "Yes, NMREC conducts mock interviews as part of placement preparation. These mock interviews simulate real interview conditions and help students improve their performance."
+      },
+      {
+        "question": "What is the role of the placement cell at NMREC?",
+        "answer": "The placement cell at NMREC coordinates placement activities, provides career counseling, conducts training programs, and ensures students are ready for campus recruitment."
+      },
+      {
+        "question": "Does NMREC offer placement assistance for M.Tech students?",
+        "answer": "Yes, NMREC provides placement assistance for M.Tech students through the placement cell, which works with industry partners to offer job opportunities."
+      },
+      {
+        "question": "What is the process for applying for off-campus placements?",
+        "answer": "NMREC provides guidance for off-campus placements. Students can apply through job portals, and the placement cell assists in the application process and interview preparation."
+      },
+      {
+        "question": "Does NMREC provide career counseling services?",
+        "answer": "Yes, NMREC offers career counseling services to guide students in making informed decisions about their career paths and job opportunities."
+      },
+      {
+        "question": "Are there any alumni networks for placement support?",
+        "answer": "Yes, NMREC has a strong alumni network that supports current students in placements, internships, and career advice."
+      },
+      {
+        "question": "What is the process for applying for internships?",
+        "answer": "Students can apply for internships through the placement cell, which coordinates with companies offering internships. Students are also encouraged to explore opportunities on their own."
+      },
+      {
+        "question": "Does NMREC offer training for competitive exams?",
+        "answer": "Yes, NMREC provides training for competitive exams like GATE helping students prepare for  exams alongside their regular curriculum."
+      },
+      {
+        "question": "Are there any placement opportunities for core branches?",
+        "answer": "Yes, NMREC offers placement opportunities for students from core branches like Civil Engineering, Mechanical Engineering, and Electrical Engineering, with placements in core industry sectors."
+      },
+      {
+        "question": "What is the process for applying for higher studies?",
+        "answer": "Students wishing to apply for higher studies are guided by faculty and the academic department. NMREC provides resources to help students prepare for entrance exams and application processes."
+      },
+      {
+        "question": "Does NMREC provide guidance for entrepreneurship?",
+        "answer": "Yes, NMREC encourages entrepreneurship and provides guidance through workshops, seminars, and incubation centers to help students start their ventures."
+      },
+      {
+        "question": "Are there any placement opportunities for women students?",
+        "answer": "Yes, NMREC encourages diversity and provides placement opportunities for women students, offering equal opportunities across various companies and industries."
+      },
+      {
+        "question": "Does NMREC provide soft skills training?",
+        "answer": "Yes, NMREC offers soft skills training, including communication, teamwork, leadership, and other essential skills required for personal and professional development."
+      },
+      {
+        "question": "Are there any placement opportunities for international companies?",
+        "answer": "Yes, NMREC provides placement opportunities with international companies for students who meet the eligibility criteria and demonstrate strong technical and interpersonal skills."
+      },
+      {
+        "question": "What is the process for applying for research internships?",
+        "answer": "Students interested in research internships can apply through the placement cell or directly to research institutes. The college also encourages students to approach faculty members for research opportunities."
+      },
+      {
+        "question": "Does NMREC provide guidance for GATE preparation?",
+        "answer": "Yes, NMREC provides guidance and coaching for students preparing for GATE, offering study materials and expert sessions."
+      },
+      {
+        "question": "Are there any placement opportunities for startups?",
+        "answer": "Yes, NMREC has tie-ups with startups, and placement opportunities are available for students interested in working with innovative, fast-growing companies."
+      },
+      {
+        "question": "What is the process for applying for campus placements?",
+        "answer": "Students can register for campus placements through the placement portal, submit their resumes, and participate in the placement process, which includes written tests, group discussions, and interviews."
+      },
+      {
+        "question": "Does NMREC provide guidance for higher studies abroad?",
+        "answer": "Yes, NMREC provides guidance for higher studies abroad, offering counseling, resources for applications, and preparation for entrance exams like GRE, TOEFL, and IELTS."
+      }
+    ],
+    "facilities": [
+      {
+        "question": "What facilities are available at NMREC?",
+        "answer": "NMREC provides a wide range of facilities including hostels, library, computer labs, sports facilities, canteen, and more to ensure a holistic learning experience."
+      },
+      {
+        "question": "Does NMREC have a hostel facility?",
+        "answer": "Yes, NMREC provides hostel facilities for both male and female students, with separate hostels and adequate amenities for a comfortable stay."
+      },
+      {
+        "question": "Is there a gym facility at NMREC?",
+        "answer": "No, currently NMREC does not  have gym facility.."
+      },
+      {
+        "question": "Does NMREC have a library?",
+        "answer": "Yes, NMREC has a well-stocked library with a vast collection of books, journals, and digital resources to support academic learning and research."
+      },
+      {
+        "question": "Are there any sports facilities at NMREC?",
+        "answer": "Yes, NMREC provides a variety of sports facilities including outdoor fields, indoor courts, and equipment for sports like cricket, football, basketball, chess, carroms, table tennis and volleyball."
+      },
+      {
+        "question": "What are the timings of the college library?",
+        "answer": "The NMREC library is typically open from 10:00 AM to 5:00 PM on weekdays. Specific timings may vary during holidays or exam periods."
+      },
+      {
+        "question": "Does NMREC have a canteen?",
+        "answer": "Yes, NMREC has a canteen offering a variety of food items, catering to the needs of students and staff."
+      },
+      {
+        "question": "Does NMREC provide transportation facilities?",
+        "answer": "Yes, NMREC provides transportation facilities with buses that connect the campus to various parts of the city for the convenience of students and staff."
+      },
+      {
+        "question": "Are there any Wi-Fi facilities on campus?",
+        "answer": "Yes, NMREC offers high-speed Wi-Fi facilities across the campus to support the academic and research needs of students and faculty."
+      },
+      {
+        "question": "Does NMREC have a computer lab?",
+        "answer": "Yes, NMREC has well-equipped computer labs with the latest hardware and software to facilitate practical learning and research."
+      },
+      {
+        "question": "Are there any auditoriums or seminar halls?",
+        "answer": "Yes, NMREC has modern seminar hall equipped with audio-visual aids for conducting seminars, conferences, and workshops."
+      },
+      {
+        "question": "Does NMREC have a playground?",
+        "answer": "Yes, NMREC has a well-maintained playground for outdoor sports activities."
+      },
+      {
+        "question": "Are there any clubs or societies at NMREC?",
+        "answer": "Yes, NMREC has various student clubs and societies for cultural, technical, sports, and social activities, providing students with opportunities to enhance their skills."
+      },
+      {
+        "question": "Does NMREC have a placement cell?",
+        "answer": "Yes, NMREC has a dedicated placement cell that works to connect students with job opportunities through campus placements, internships, and career counseling."
+      },
+      {
+        "question": "Are there any research labs at NMREC?",
+        "answer": "Yes, NMREC has specialized research labs in various departments, providing facilities for research and innovation in areas of engineering and technology."
+      },
+      {
+        "question": "Does NMREC have a student activity center?",
+        "answer": "Yes, NMREC has a student activity center that hosts cultural events, workshops, and various extracurricular activities for student engagement."
+      },
+      {
+        "question": "Are there any ATMs on campus?",
+        "answer": "Yes, NMREC has ATMs near the campus for the convenience of students and staff to access banking services."
+      },
+      {
+        "question": "Are there any parking facilities on campus?",
+        "answer": "Yes, NMREC provides ample parking facilities for students, staff, and visitors on campus."
+      },
+      {
+        "question": "Does NMREC have a conference hall?",
+        "answer": "Yes, NMREC has a conference hall equipped with modern amenities for hosting academic and professional events."
+      },
+      {
+        "question": "Are there any green spaces or gardens on campus?",
+        "answer": "Yes, NMREC has well-maintained green spaces and gardens that provide a peaceful environment for students and faculty."
+      },
+      {
+        "question": "Are there any printing or photocopy or xerox facilities?",
+        "answer": "Yes, NMREC provides printing or xerox and photocopy facilities for students to access academic resources and print necessary documents."
+      }
+    ],
+    "examination_info": [
+      {
+        "question": "What is the examination schedule for B.Tech?",
+        "answer": "The examination schedule for B.Tech is usually announced at the beginning of each semester and is made available on the official NMREC website or through the academic office."
+      },
+      {
+        "question": "How can I check my exam results?",
+        "answer": "You can check your exam results through the official NMREC website by logging into the student portal with your credentials."
+      },
+      {
+        "question": "What is the process for applying for revaluation?",
+        "answer": "To apply for revaluation, students must submit an application form and the required fee to the examination office within the prescribed deadline."
+      },
+      {
+        "question": "Are there any internal assessments for exams?",
+        "answer": "Yes, NMREC conducts internal assessments for B.Tech students, which include quizzes, assignments, mid-semester exams, and project evaluations."
+      },
+      {
+        "question": "What is the passing criteria for exams at NMREC?",
+        "answer": "The passing criteria generally include a minimum percentage in both theory and practical exams, along with the internal assessments. Specific criteria may vary by course and department."
+      },
+      {
+        "question": "Are there any semester-end exams?",
+        "answer": "Yes, NMREC conducts semester-end exams for all B.Tech courses as part of the overall assessment process."
+      },
+      {
+        "question": "What is the process for applying for exam hall tickets?",
+        "answer": "Hall tickets are usually available online through the student portal. Students need to download and print the hall ticket before the exam."
+      },
+      {
+        "question": "Are there any mock tests conducted before exams?",
+        "answer": "Yes, NMREC organizes 2 mid-sem exams for students to help them prepare better for the final exams."
+      },
+      {
+        "question": "What is the process for applying for supplementary exams?",
+        "answer": "Students who have failed a subject may apply for supplementary exams by filling out the supplementary exam form and paying the required fees."
+      },
+      {
+        "question": "Are there any online exams conducted at NMREC?",
+        "answer": "Yes, NMREC conducts online exams for some subjects, especially in the case of internal assessments or during special circumstances."
+      },
+      {
+        "question": "Are there any viva exams for practical subjects?",
+        "answer": "Yes, NMREC conducts viva exams for practical subjects to assess students' understanding of the subject."
+      },
+      {
+        "question": "What is the process for applying for exam re-totaling?",
+        "answer": "Students can apply for re-totaling by submitting a request form to the examination office along with the re-totaling fee."
+      },
+      {
+        "question": "Are there any project evaluations for exams?",
+        "answer": "Yes, NMREC evaluates student projects at the end of the semester. These evaluations are a crucial part of the final assessment."
+      },
+      {
+        "question": "What is the process for applying for exam transcripts?",
+        "answer": "Students can apply for exam transcripts by submitting a request form and paying the applicable fee to the examination office."
+      },
+      {
+        "question": "What is the process for applying for exam certificates?",
+        "answer": "Exam certificates can be obtained by applying to the academic office, where students need to fill out the necessary form and pay the required fee."
+      },
+      {
+        "question": "Are there any penalties for exam malpractice?",
+        "answer": "Yes, NMREC has strict rules against exam malpractice. Students found guilty of cheating or other violations may face penalties, including suspension or expulsion."
+      }
+    ],
+    "institution_info": [
+      {
+        "question": "Where is NMREC located?",
+        "answer": "NMREC is located at NH-7, 7-01, Divya Nagar, Kachivani Singaram, Ghatkesar, Hyderabad, Telangana 500088, India."
+      },
+      {
+        "question": "What is the contact number of NMREC?",
+        "answer": "You can contact NMREC at the Phone number: +91 7702266732/7702866732"
+      },
+      {
+        "question": "What is the official website of NMREC?",
+        "answer": "The official website of NMREC is https://www.nmrec.edu.in"
+      },
+      {
+        "question": "What is the vision of NMREC?",
+        "answer": "The vision of NMREC is To provide high quality technical education and train graduates who are uniquely valuable to the society, industry, higher education and research."
+      },
+      {
+        "question": "What is the mission of NMREC?",
+        "answer": "The mission of NMREC is To grow and develop centres of excellence in various branches of engineering with an objective to train technical graduates valuable to the society and highly motivated to face the challenges in industry, higher education and research."
+      },
+      {
+        "question": "Who is the principal of NMREC?",
+        "answer": "The current principal of NMREC is Dr. M.N.V. Ramesh."
+      },
+      {
+        "question": "Who is the full of NMREC?",
+        "answer": "The NMREC stands for Nalla Malla Reddy Engineering College."
+      },
+      {
+        "question": "What is the history of NMREC?",
+        "answer": "Nalla Malla Reddy Engineering College (NMREC) was established in 2001 with a mission to provide quality education in engineering and technology to meet industry needs."
+      },
+      {
+        "question": "What are the achievements of NMREC?",
+        "answer": "NMREC has achieved significant milestones which include International Green College Award 2024, hosting the Smart India Hackathon (SIH) 2023, and securing funding for student projects from EPICS (Engineering Projects in Community Service) in IEEE and many more"
+      },
+      {
+        "question": "What is the ranking of NMREC?",
+        "answer": "NMREC is ranked among the top engineering colleges in Telangana and India ranking 118 in the Engineering (Private) category of India Today 2024 rankings."
+      },
+      {
+        "question": "What are the affiliations of NMREC?",
+        "answer": "NMREC is affiliated with the All India Council for Technical Education (AICTE) and Jawaharlal Nehru Technological University Hyderabad (JNTU Hyderabad)."
+      },
+      {
+        "question": "What is the accreditation status of NMREC?",
+        "answer": "NMREC is Accredited by the National Assessment and Accreditation Council (NAAC) with an 'A' grade, accredited by the National Board of Accreditation (NBA) and is approved by the All India Council for Technical Education (AICTE)."
+      },
+      {
+        "question": "What are the collaborations of NMREC?",
+        "answer": "NMREC has collaborations with various industries, universities, and research institutions for academic, research, and placement purposes, which include Indiana University Purdue University Indianapolis (USA), University of Memphis, Tennessee (USA), Rider University, New Jersey (USA) and many more."
+      },
+      {
+        "question": "What is the campus size of NMREC?",
+        "answer": "The campus size of NMREC is spread across 15 acres and is equipped with state-of-the-art facilities for both academic and extracurricular activities."
+      },
+      {
+        "question": "What is the student strength at NMREC?",
+        "answer": "The student strength at NMREC is around 2074, with students enrolled in undergraduate, postgraduate, and doctoral programs."
+      },
+      {
+        "question": "What is the faculty strength at NMREC?",
+        "answer": "NMREC has a faculty strength of around 200 dedicated and experienced professors, including several PhD holders."
+      },
+      {
+        "question": "What are the research areas at NMREC?",
+        "answer": "Research areas at NMREC likely focus on various engineering disciplines, including areas like construction management, geotechnical engineering, materials, structures, transportation, and water resources, as well as broader areas like health, future industries, sustainability, infrastructure, and communities"
+      },
+      {
+        "question": "What are the publications by NMREC?",
+        "answer": "NMREC faculty and students regularly publish research papers in national and international journals and present papers at conferences, some of them incude RevolutionizingControl System Engineering Education with Active Learning Strategies”, IEEE INDICON 2023, Project-based learning: Design of data acquisition module for greenhouse system. International Journal of Electrical Engineering & Education, (2023) and many more."
+      },
+      {
+        "question": "What are the patents filed by NMREC?",
+        "answer": "NMREC encourages innovation, and its faculty and students have filed patents in areas related to engineering and technology, some of them are SMART MEDICAL ASSISTANT DEVICE USING IOT, AN ATTENDANCE CAPTURING SYSTEM BASED ON A SINGLE FACIAL PATTERN IDENTIFICATION FROM A GROUP IMAGE."
+      },
+      {
+        "question": "What are the alumni achievements of NMREC?",
+        "answer": "NMREC alumni have gone on to achieve great success in both industry and academia, securing leadership positions in reputed organizations worldwide."
+      },
+      {
+        "question": "What are the social initiatives of NMREC?",
+        "answer": " NMREC actively engages in social initiatives through its NSS wing, Unnat Bharat Abhiyan, and a Social Responsibility Club, focusing on community service, environmental conservation, and sustainability. "
+      },
+      {
+        "question": "What are the industry partnerships of NMREC?",
+        "answer": "NMREC fosters industry partnerships through its Industry Institute Coordination Cell (IICC), which facilitates interactions, internships, and industry-expert mentoring, while also ensuring industry inputs in the curriculum and through events like the Industry Institute Research Meet."
+      },
+      {
+        "question": "What are the international collaborations of NMREC?",
+        "answer": "NMREC has collaborations with various industries, universities, and research institutions for academic, research, and placement purposes, which include Indiana University Purdue University Indianapolis (USA), University of Memphis, Tennessee (USA), Rider University, New Jersey (USA) and many more."
+      },
+      {
+        "question": "What are the extracurricular activities at NMREC?",
+        "answer": "NMREC offers a wide range of extracurricular activities, including sports, cultural events, workshops, seminars, and student clubs focusing on various interests."
+      },
+      {
+        "question": "What are the student support services at NMREC?",
+        "answer": "NMREC provides various student support services, including career counseling, academic guidance, mentorship programs, and extracurricular support."
+      },
+      {
+        "question": "What are the anti-ragging policies at NMREC?",
+        "answer": "NMREC follows strict anti-ragging policies in accordance with government regulations. The college has a committee in place to monitor and prevent ragging activities."
+      },
+      {
+        "question": "What are the safety measures at NMREC?",
+        "answer": "NMREC has strict safety measures, including CCTV surveillance, security personnel on campus, and emergency response systems."
+      },
+      {
+        "question": "What are the transportation options to NMREC?",
+        "answer": "NMREC is well-connected by public transport, and the college provides buses for students from different areas to the campus."
+      },
+      {
+        "question": "What are the nearby facilities to NMREC?",
+        "answer": "There are several facilities nearby, including banks, shopping malls, restaurants, and medical facilities, ensuring convenience for students and staff."
+      },
+      {
+        "question": "What are the accommodation options near NMREC?",
+        "answer": "NMREC, offers separate hostel buildings for girls and boys, with facilities for comfortable stay, including fully furnished rooms with beds, mattresses, study tables, and chairs, as well as mineral water and water coolers."
+      },
+      {
+        "question": "What are the dining options near NMREC?",
+        "answer": "There are various dining options near NMREC, including local restaurants, cafes, and food courts offering a wide range of cuisines."
+      },
+      {
+        "question": "What are the shopping options near NMREC?",
+        "answer": "Shopping malls and local markets near NMREC provide a variety of shopping options for students."
+      },
+      {
+        "question": "What are the healthcare facilities near NMREC?",
+        "answer": "There are several healthcare facilities near NMREC, including hospitals and clinics offering medical services to students and staff."
+      },
+      {
+        "question": "What are the tourist attractions near NMREC?",
+        "answer": "Some tourist attractions near NMREC include historical sites, parks, and cultural landmarks in Hyderabad like the Charminar, Hussain Sagar Lake, and the Golkonda Fort."
+      },
+      {
+        "question": "What are the banking facilities near NMREC?",
+        "answer": "Several banks and ATMs are located near NMREC, providing banking services to students and staff."
+      },
+      {
+        "question": "What are the postal services near NMREC?",
+        "answer": "Postal services are available nearby through local post offices and courier services."
+      },
+      {
+        "question": "What are the emergency contacts at NMREC?",
+        "answer": "Emergency contacts of NMREC are +91 7702266732/7702866732"
+      },
+      {
+        "question": "What are the social media handles of NMREC?",
+        "answer": "NMREC is active on various social media platforms such as Facebook, Twitter, LinkedIn, and Instagram. You can follow the official handles for updates and announcements."
+      }
+    ]
+  }

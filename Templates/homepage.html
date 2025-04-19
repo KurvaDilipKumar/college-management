@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login NMREC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #0a0a5c, #0c056d);
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            transition: 0.3s;
+        }
+
+        .role-tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .role-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: #f0f0f0;
+            color: #666;
+            transition: 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            min-width: 80px;
+        }
+
+        .role-tab.active {
+            background: #0c056d;
+            color: white;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #0c056d;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .forgot-password {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password a {
+            color: #0c056d;
+            text-decoration: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #0c056d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #140a8a;
+            transform: translateY(-2px);
+        }
+
+        /* Styles for Messages */
+        .messages {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            z-index: 1000;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .alert-error {
+            color: #d32f2f;
+            border: 5px solid #d32f2f;
+        }
+
+        .alert-success {
+            color: #2e7d32;
+            border: 5px solid #2e7d32;
+        }
+
+        .alert-info {
+            color: #0288d1;
+            border: 1px solid #0288d1;
+        }
+
+        .alert-close {
+            cursor: pointer;
+            font-size: 1rem;
+            color: inherit;
+            background: none;
+            border: none;
+            padding: 0 0.5rem;
+        }
+
+        .alert-close:hover {
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 1.5rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .login-header p {
+                font-size: 0.9rem;
+            }
+
+            .input-group input {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .login-btn {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .messages {
+                width: 90%;
+                right: 5%;
+                top: 50px;
+            }
+
+            .alert {
+                font-size: 0.8rem;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .role-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .role-tab {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .login-container {
+                padding: 1rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .login-header p {
+                font-size: 0.8rem;
+            }
+
+            .input-group input {
+                padding: 0.7rem;
+                font-size: 0.8rem;
+            }
+
+            .login-btn {
+                padding: 0.7rem;
+                font-size: 0.8rem;
+            }
+
+            .messages {
+                width: 95%;
+                right: 2.5%;
+                top: 120px;
+            }
+
+            .alert {
+                font-size: 0.7rem;
+                padding: 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="messages">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+            <button class="alert-close"><b>X</b></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="login-container">
+        <div class="role-tabs">
+            <a href="#" class="role-tab active">Admin</a>
+            <a href="{% url 'faculty:faculty_login' %}" class="role-tab">Faculty</a>
+            <a href="{% url 'student:student_login' %}" class="role-tab">Student</a>
+        </div>
+
+        <div class="login-header">
+            <h1>Admin Login</h1>
+            <p>Please login to continue</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <!-- <input name="email" type="email" placeholder="Email" required> -->
+                <input name="email" type="email" placeholder="Email" required>
+
+                <!-- <input name="email" type="text" placeholder="Username" required> -->
+
+            </div>
+            <div class="input-group">
+                <input name="password" type="password" placeholder="Password" id="password" required>
+                <i class="bi bi-eye-slash" id="togglePassword"
+                    style="color: black; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+            </div>
+            <button type="submit" class="login-btn">LogIn</button>
+        </form>
+    </div>
+
+    <script>
+        // Password Toggle Visibility
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+        togglePassword.addEventListener("click", function () {
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+            this.classList.toggle("bi-eye");
+            this.classList.toggle("bi-eye-slash");
+        });
+
+        // Close Alert Messages
+        document.querySelectorAll(".alert-close").forEach(button => {
+            button.addEventListener("click", function () {
+                this.parentElement.style.opacity = "0";
+                setTimeout(() => this.parentElement.remove(), 300);
+            });
+        });
+    </script>
+</body>
+
+</html>

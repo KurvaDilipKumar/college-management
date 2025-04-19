@@ -1,0 +1,20 @@
+{% extends "faculty/dashboard.html" %}
+{% block content %}
+<div class="container my-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Enter Student ID</h4>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'faculty:facultyChatRoom' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="studentId" class="form-label">Student ID</label>
+                    <input type="text" class="form-control" id="studentId" name="studentId" placeholder="Enter Student ID" required>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

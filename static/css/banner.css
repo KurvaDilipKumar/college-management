@@ -1,0 +1,16 @@
+
+
+.banner{
+    width: 100%;
+}
+.banner-video video {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    border: none;
+}
+
+.banner-video video::-webkit-media-controls {
+    display: none;
+}

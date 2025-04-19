@@ -1,0 +1,241 @@
+{% extends "faculty/dashboard.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+{% block content %}
+<div class="container mt-4">
+    <div style="position: sticky; top: 0; background-color: white; z-index: 100; padding: 10px 0;">
+        <h2 class="text-center mb-4">Add / Manage Marks</h2>
+
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        <div class="mb-4">
+            <a href="{% url 'faculty:add_marks' %}" class="btn btn-success">Add Marks</a>
+            <a href="{% url 'faculty:manage_marks' %}" class="btn btn-primary ms-3">Manage Marks</a>
+        </div>
+    </div>
+    {% if request.resolver_match.url_name == 'add_marks' %}
+        <h2 class="text-center mb-4">Add Marks</h2>
+        <div class="card p-4 shadow mt-4">
+            <h4 class="mb-3">Add Marks</h4>
+            <form method="POST" action="{% url 'faculty:add_marks' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="student_id" class="form-label">Student ID:</label>
+                        <input type="text" id="student_id" name="student_id" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="batch" class="form-label">Batch:</label>
+                        <select id="batch" name="batch" class="form-select" required>
+                            <option value="">Select Batch</option>
+                            {% for batch in batches %}
+                                <option value="{{ batch }}">{{ batch }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="department" class="form-label">Department:</label>
+                        <select id="department" name="department" class="form-select" required>
+                            <option value="">Select Department</option>
+                            {% for dept, dept_name in departments %}
+                                <option value="{{ dept }}">{{ dept_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subject" class="form-label">Subject:</label>
+                        <input type="text" id="subject" name="subject" class="form-control" value="{{ fSubject|default_if_none:'' }}" required readonly>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="marks" class="form-label">Marks:</label>
+                        <input type="number" id="marks" name="marks" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exam_type" class="form-label">Exam Type:</label>
+                        <select id="exam_type" name="exam_type" class="form-select" required>
+                            <option value="">Select Exam Type</option>
+                            <option value="sem">Semester</option>
+                            <option value="mid">Mid-Term</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="semester" class="form-label">Semester:</label>
+                        <select id="semester" name="semester" class="form-select" required>
+                            <option value="">Select Semester</option>
+                            {% for i in '12345678' %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6" id="mid_term_field" style="display: none;">
+                        <label for="mid_term" class="form-label">Mid-Term:</label>
+                        <select id="mid_term" name="mid_term" class="form-select" required>
+                            <option value="">Select Mid-Term</option>
+                            <option value="1">1st Mid</option>
+                            <option value="2">2nd Mid</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success mt-3">Add Marks</button>
+            </form>
+        </div>
+        <script>
+            const examType = document.getElementById('exam_type');
+            const midTermField = document.getElementById('mid_term_field');
+            const midTermSelect = document.getElementById('mid_term');
+        
+            function toggleMidTermField() {
+                if (examType.value === 'mid') {
+                    midTermField.style.display = 'block';
+                    midTermSelect.setAttribute('required', 'required');
+                } else {
+                    midTermField.style.display = 'none';
+                    midTermSelect.removeAttribute('required'); // 🔧 important
+                    midTermSelect.value = ''; // clear value
+                }
+            }
+        
+            examType.addEventListener('change', toggleMidTermField);
+            window.addEventListener('load', toggleMidTermField); // ensure correct behavior on page load
+        </script>
+    {% elif request.resolver_match.url_name == 'manage_marks' %}
+        <h2 class="text-center mb-4">Manage Marks</h2>
+        <div class="card p-4 shadow mt-4">
+            <h4 class="mb-3">Manage Marks</h4>
+            <form method="GET" class="row g-3" action="{% url 'faculty:manage_marks' %}">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="search" placeholder="Search by Student ID" class="form-control" value="{{ request.GET.search }}">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="filter_subject" placeholder="Search by Subject" class="form-control" value="{{ request.GET.filter_subject }}">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary w-100">Filter</button>
+                    </div>
+                    <div class="col-md-2 d-flex">
+                        <a href="{% url 'faculty:manage_marks' %}" class="btn btn-secondary ms-2">Reset</a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Subject</th>
+                            <th>Marks</th>
+                            <th>Exam Type</th>
+                            <th>Semester</th>
+                            <th>Mid-Term</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mark in marks_list %}
+                        <tr>
+                            <td>{{ mark.student.student_id }}</td>
+                            <td>{{ mark.subject }}</td>
+                            <td>{{ mark.marks }}</td>
+                            <td>{{ mark.exam_type }}</td>
+                            <td>{{ mark.semester }}</td>
+                            <td>{{ mark.mid_term }}</td>
+                            <td>
+                                <a href="{% url 'faculty:edit_marks' mark.id %}" class="btn btn-warning btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center">No marks added yet.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% elif request.resolver_match.url_name == 'edit_marks' %}
+        <h2 class="text-center mb-4">Edit Marks</h2>
+        <div class="card p-4 shadow">
+            <h4 class="mb-3">Update Marks Details</h4>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="student_id" class="form-label">Student ID:</label>
+                        <input type="text" id="student_id" name="student_id" class="form-control" value="{{ marks_instance.student.student_id }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="batch" class="form-label">Batch:</label>
+                        <select id="batch" name="batch" class="form-select" required>
+                            <option value="">Select Batch</option>
+                            {% for batch in batches %}
+                                <option value="{{ batch }}" {% if marks_instance.student.batch == batch %}selected{% endif %}>{{ batch }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="department" class="form-label">Department:</label>
+                        <select id="department" name="department" class="form-select" required>
+                            <option value="">Select Department</option>
+                            {% for dept, dept_name in departments %}
+                                <option value="{{ dept }}" {% if marks_instance.student.department == dept %}selected{% endif %}>{{ dept_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subject" class="form-label">Subject:</label>
+                        <input type="text" id="subject" name="subject" class="form-control" value="{{ marks_instance.subject }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="marks" class="form-label">Marks:</label>
+                        <input type="number" id="marks" name="marks" class="form-control" value="{{ marks_instance.marks }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exam_type" class="form-label">Exam Type:</label>
+                        <select id="exam_type" name="exam_type" class="form-select" required>
+                            <option value="">Select Exam Type</option>
+                            <option value="sem" {% if marks_instance.exam_type == 'sem' %}selected{% endif %}>Semester</option>
+                            <option value="mid" {% if marks_instance.exam_type == 'mid' %}selected{% endif %}>Mid-Term</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="semester" class="form-label">Semester:</label>
+                        <select id="semester" name="semester" class="form-select" required>
+                            <option value="">Select Semester</option>
+                            {% for i in '12345678' %}
+                                <option value="{{ i }}" {% if marks_instance.semester == i|stringformat:'s' %}selected{% endif %}>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% if marks_instance.exam_type == 'mid' %}
+                    <div class="col-md-6">
+                        <label for="mid_term" class="form-label">Mid-Term:</label>
+                        <select id="mid_term" name="mid_term" class="form-select">
+                            <option value="1" {% if marks_instance.mid_term == 1 %}selected{% endif %}>1st Mid</option>
+                            <option value="2" {% if marks_instance.mid_term == 2 %}selected{% endif %}>2nd Mid</option>
+                        </select>
+                    </div>
+                    {% endif %}
+                </div>
+                <button type="submit" class="btn btn-success mt-3">Update Marks</button>
+                <a href="{% url 'faculty:manage_marks' %}" class="btn btn-secondary mt-3">Cancel</a>
+            </form>
+        </div>
+    {% else %}
+        <div class="mb-4">
+            <a href="{% url 'faculty:add_marks' %}" class="btn btn-success">Add Marks</a>
+            <a href="{% url 'faculty:manage_marks' %}" class="btn btn-primary ms-3">Manage Marks</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

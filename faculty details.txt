@@ -1,0 +1,227 @@
+Name: Dr. Divya Nalla
+Email: director@gmail.com
+Phone: 999999999
+Department: CSE
+Subjects:
+----------------------------------------
+Name: Dr. M Raju
+Email: hodcse@nmrec.edu.in
+Phone: 888888888
+Department: CSE
+Subjects:
+----------------------------------------
+Name: Mr. Gaddam Srikanth Reddy
+Email: srikanth.cse@nmrec.edu.in
+Phone: 8466911491
+Department: CSE
+Subjects: Machine Learning
+----------------------------------------
+Name: Mrs. Ramya Nellutla
+Email: ramya.cse@nmrec.edu.in
+Phone: 8688006821
+Department: CSE
+Subjects: Machine Learning
+----------------------------------------
+Name: Mr. Kalyan Chatterjee
+Email: kalyanchatterjee.cse@nmrec.edu.in
+Phone: 8145564414
+Department: CSE
+Subjects: DBMS, DM, DSA
+----------------------------------------
+Name: Mrs. Sririsha Veluri
+Email: sirisha.cse@nmrec.edu.in
+Phone: 9441243450
+Department: CSE
+Subjects: Computer Science & Engineering
+----------------------------------------
+Name: Mrs. K. Dhivya
+Email: divya.cse@nmrec.edu.in
+Phone: 8072593020
+Department: CSE
+Subjects: SOFTWARE ENGINEERING
+ SOCIAL NETWORK ANALYSIS
+DATA SCIENCE
+ BIG DATA ANALYTICS
+CLOUD SECURITY
+COMPUTER SYSTEM ARCHITECTURE
+----------------------------------------
+Name: Mr. M. Dayakar
+Email: dayakarmcse@gmail.com
+Phone: 74118529445
+Department: CSE
+Subjects: discrete mathematics
+----------------------------------------
+Name: Mrs. E. Samathasree Chaturvedi
+Email: samathasree.cse@nmrec.edu.in
+Phone: 9248959035
+Department: CSE
+Subjects: Machine Learning
+----------------------------------------
+Name: Mrs. Anitha Yajjala
+Email: anithadolai2008@gmail.com
+Phone: 9491373701
+Department: CSE
+Subjects: OOPs through JAVA
+----------------------------------------
+Name: Mr. B. Bhuvanesh Goud
+Email: bhuvaneshgoud.cse@nmrec.edu.in
+Phone: 9182694696
+Department: CSE
+Subjects: Operating Systems
+ Software Process and Project Management
+----------------------------------------
+Name: Mrs. Y Sneha
+Email: snehaycse@gmail.com
+Phone: 71851287412
+Department: CSE
+Subjects: y sneha
+----------------------------------------
+Name: Mrs. L Rajitha
+Email: rajithalcse@gmail.com
+Phone: 6281756101
+Department: CSE
+Subjects: Operating Systems
+----------------------------------------
+Name: Mr. Harshal Om Prakash Rahangdale
+Email: harshalomprakashcse@gmail.com
+Phone: 811414414
+Department: CSE
+Subjects: IT Workshop, Compiler Design, OOPs through Java.
+----------------------------------------
+Name: Mr. Komaram Prudvi Raj
+Email: prudvi.cse@nmrec.edu.in
+Phone: 9014799090
+Department: CSE
+Subjects: OOPs Through Java
+----------------------------------------
+Name: Mr. Nila Chakra Dash
+Email: chakradas.cse@nmrec.edu.in
+Phone: 9439551052
+Department: CSE
+Subjects: DISCRETE MATHEMATICS
+ITWORKSHOP
+COMPUTER NETWORKS
+DEEP LEARNING
+----------------------------------------
+Name: Dr. Sneha G
+Email: snehagcse@gmail.com
+Phone: 989814
+Department: CSE
+Subjects: g sneha
+----------------------------------------
+Name: Mr. Sabih Ahmad Ansari
+Email: sabihahmad.cse@nmrec.edu.in
+Phone: 8497907586
+Department: CSE
+Subjects: Data Mining
+----------------------------------------
+Name: Mrs. Rama Sree
+Email: ramasree.cse@nmrec.edu.in
+Phone: 8074283693
+Department: CSE
+Subjects: Operating Systems, Data Mining
+----------------------------------------
+Name: Dr. Bhoomeshwar Bala
+Email: bhoomeshwarbala.cse@nmrec.edu.in
+Phone: 9553712542
+Department: CSE
+Subjects: Operating Systems
+----------------------------------------
+Name: Ms. Cuminious Okram
+Email: okram.cse@nmrec.edu.in
+Phone: 7005933976
+Department: CSE
+Subjects: CN, CNS
+----------------------------------------
+Name: Mrs. G. Shirisha
+Email: shirisha.cse@nmrec.edu.in
+Phone: 9121596644
+Department: CSE
+Subjects: CNS
+----------------------------------------
+Name: Mr. Raghavendra P
+Email: raghavendragowd.cse@nmrec.edu.in
+Phone: 9154117118
+Department: CSE
+Subjects: Data Mining
+----------------------------------------
+Name: Dr. G. Mamatha Samson
+Email: mamatha.cse@nmrec.edu.in
+Phone: 9849443411
+Department: CSE
+Subjects: Machine Learning
+Computer Networks
+ VLSI Design
+ Computer Architecture
+Analog and Digital communications
+ DDTV HDLD
+ Design For Testability
+CMOS Digital IC Design
+ VLSITD, DSD
+ Mixed Signal Circuits
+ STLD
+ LIC
+Control systems.
+----------------------------------------
+Name: Dr.  A. Vijendar
+Email: amgothu.vijendar@gmail.com
+Phone: 9492783277
+Department: CSE
+Subjects: C
+ DS
+TOC
+ CN
+ OS
+ CNS
+----------------------------------------
+Name: Dr. Ravi Bukya
+Email: ravibhukya.cse@nmrec.edu.in
+Phone: 9441333496
+Department: CSE
+Subjects: Machine Learning
+----------------------------------------
+Name: Mr. Anandakumar Kongara
+Email: kongara527@gmail.com
+Phone: 9052235387
+Department: CSE
+Subjects: Operating systems
+----------------------------------------
+Name: Dr. Venkata Manga Rao N
+Email: drvmrn8@gmail.com
+Phone: 7337505488
+Department: CSE
+Subjects: Discrete Mathematics
+----------------------------------------
+Name: Mr. Velpula Muni Babu
+Email: babumuniv@gmail.com
+Phone: 9885857904
+Department: CSE
+Subjects: CSE
+----------------------------------------
+Name: Mr. Srinivas Patnaik
+Email: patnaik.srini@gmail.com
+Phone: 9483501484
+Department: CSE
+Subjects:
+----------------------------------------
+Name: Mr. Kokkula Shiva Prasad
+Email: shivaprasad.ece@nmrec.edu.in
+Phone: 9032873122
+Department: ECE
+Subjects: Computer Systems and Architecture, Python Programming, Artificial Intelligence,
+Machine Learning, Deep Learning, Internet of Things
+ Computer Networks, Embedded Systems, Antenna and Wave Propogation
+Microwave Engineering, Image Processing, PTSP
+ DLD, Digital Systems, Pulse and Digital Circuits, ECA, EDC.
+----------------------------------------
+Name: Mr. D. Hemanth Kumar
+Email: aruntwins2000@gmail.com
+Phone: 9299158893
+Department: ECE
+Subjects: Computer Systems and Architecture
+----------------------------------------
+Name: Dr. Raman Kumar
+Email: ramankumarece@gmail.com
+Phone: 9124894
+Department: ECE
+Subjects: raman Kumar

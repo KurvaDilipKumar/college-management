@@ -1,0 +1,69 @@
+{% extends "student/dashboard.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="card-title mb-3">Placement Management</h4>
+
+            {% if placement_data %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Company</th>
+                                <th>Job Title</th>
+                                <th>Application Date</th>
+                                <th>Status</th>
+                                <th>Round Updates</th>
+                                <th>Shortlisted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for placement in placement_data %}
+                                <tr>
+                                    <td>{{ placement.company }}</td>
+                                    <td>{{ placement.job_title }}</td>
+                                    <td>{{ placement.application_date|date:"Y-m-d H:i" }}</td>
+                                    <td>{{ placement.status }}</td>
+                                    <td>{{ placement.round_updates|default:"-" }}</td>
+                                    <td>
+                                        {% if placement.shortlisted %}
+                                            Yes
+                                        {% else %}
+                                            No
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-center">No placements applied for.</p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+/* Improve table appearance */
+.table-responsive {
+    margin-top: 1rem;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+/* Improve no data found message */
+.text-center {
+    font-style: italic;
+    color: #555;
+    margin-top: 20px;
+}
+</style>
